@@ -19,6 +19,7 @@ h1 {
     line-height: 1.25;
 }
 
+
 .navbar-item{
     width:350px;
     height:auto;
@@ -28,5 +29,18 @@ h1 {
     width:300px;
    max-height:auto;
 }
+
+#Contributors {
+    font-weight:bolder;
+    font-size: 1.2rem;
+}
+
+.footerStyle > a{
+    font-weight:bolder;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+
 
 
