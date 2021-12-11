@@ -14,19 +14,11 @@ body {
     margin: 0;
 }
 
-<<<<<<< HEAD
-  h1 {
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
-}
-=======
 h1 {
     margin: 0 0 0.5rem;
     line-height: 1.25;
 }
-<<<<<<< HEAD
->>>>>>> 320c9c087c397903eb15d1c0055b71acc110301d
-=======
+
 
 .navbar-item{
     width:350px;
@@ -38,5 +30,17 @@ h1 {
    max-height:auto;
 }
 
+#Contributors {
+    font-weight:bolder;
+    font-size: 1.2rem;
+}
 
->>>>>>> acf89c8cf74bb4f0dd049c7174ae6650d3d5998c
+.footerStyle > a{
+    font-weight:bolder;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+
+
+
