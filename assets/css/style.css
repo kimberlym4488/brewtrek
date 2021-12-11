@@ -18,3 +18,15 @@ h1 {
     margin: 0 0 0.5rem;
     line-height: 1.25;
 }
+
+.navbar-item{
+    width:350px;
+    height:auto;
+}
+
+.logo{
+    width:300px;
+   max-height:auto;
+}
+
+
