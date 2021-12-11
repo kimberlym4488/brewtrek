@@ -5,7 +5,7 @@ OpenBreweryDB and WalkScore API for Group Project 1
 As a person who enjoys social activities I want to to view breweries and the best way to walk there so I can be a responsible citizen and stay safe.
 
 ## Project Homepage
-https://tbd
+https://kimberlym4488.github.io/brewtrek/
 
 ## Project documentation URL
 https://github.com/kimberlym4488/brewtrek
