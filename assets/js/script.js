@@ -1,4 +1,4 @@
-var timeDisplayEl = $("#time");
+var welcomeMessage = $("#welcomeMessage");
 var city = document.querySelector("#input");
 var mainText = document.querySelector("#mainText");
 var invalidFeedback = document.querySelector(".feedback");
@@ -6,11 +6,14 @@ var APIkey = "a059151d000029215400bdaa7965fbc2"
 
 
 function displayTime() {
-    var now = moment().format('dddd, MMMM Do');
-    console.log(now)
-    timeDisplayEl.text(now);
+    var today = moment().format('dddd');
+   
+    var welcome = `
+    <p style="font-weight:bolder">View breweries.</p>
+    <p style="font-weight:bolder">Pick your place.</p>
+    <p style="font-weight:bolder">Have an epic ${today}.</p>`
+    welcomeMessage.html(welcome);
 }
-
 
 function getLatLon(){
     var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city.value}&appid=${APIkey}`;
@@ -38,12 +41,8 @@ function buttonClickHandler(event){
     console.log(city.value);
 //If nothing is entered, alert pops up to enter a search term.
         if (city.value==='') {
-  
-            var invalidFeedback = 
-            `<p>Please enter a valid city</p>`
+            $("#invalidEntry").text("Please enter a valid city!")
         
-            $(invalidFeedback).empty().append($("#input"))
-            console.log(invalidFeedback)
             return;
         } 
         else {
