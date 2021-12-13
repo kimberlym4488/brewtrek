@@ -1,4 +1,4 @@
-// Populates brewery.html with information about a specific brewery.
+// Populates brewery.html with information about a specific brewery. Stuck on adding dashes in phone number.
 
 var params = new URLSearchParams(document.location.search);
 var query = `https://api.openbrewerydb.org/breweries/${params.get("q")}`;
