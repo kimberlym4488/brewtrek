@@ -1,13 +1,21 @@
+/*{
+    background-color:#F94144;
+    background-color:#F3722C;
+    background-color:#F8961E;
+    background-color:#F9C74F;
+    background-color:#90BE6D;
+    background-color:#43AA8B;
+    background-color: #2d3e50;
+    background-color:white;
+}*/
+
+body{
+    height:100vh;
+    scroll-behavior:none;
+
+}
 .header1 {
     background-color: #2d3e50;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-white {
-    color: #ffffff;
 }
 
 body {
@@ -21,26 +29,71 @@ h1 {
 
 
 .navbar-item{
-    width:350px;
+    width:400px;
     height:auto;
 }
 
 .logo{
-    width:300px;
+    width:350px;
    max-height:auto;
+}
+
+
+#welcomeMessage{
+    background-color:#43AA8B;
+    color:white;
+    font-size:1rem;
+    text-align:center;
+}
+
+#time p{
+    background-color:#43AA8B;
+    color:white;
+    font-size:1;
+    text-align:center;
+}
+
+#invalidEntry{
+    padding-bottom:2rem;
+    color: #F94144;
+    font-weight:bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #ffffff;
 }
 
 #Contributors {
     font-weight:bolder;
     font-size: 1.2rem;
+  
+}
+.footer{
+    margin-top:3rem;
+    padding-bottom:3rem;
+    background-color:rgb(87,117,144,.5);
+    border-radius:4px;
+    border:rgb(87,117,144) .5 5px;
+
 }
 
 .footerStyle > a{
     font-weight:bolder;
     display: inline-block;
-    margin-left: 30px;
+    color:#2d3e50;
+    display:flex;
+    display:column;
+    justify-content:center;
 }
 
+a.firstChild{
+    color:#F94144;
+    font-size:1.5rem;
+}
 
 
 
