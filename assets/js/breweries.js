@@ -30,6 +30,33 @@ function writeResult(data){
 // subtitleEle.append(SubtitleEle);
 
 // column2Ele.append(rowEle);
+<<<<<<< HEAD
+return `<div class="tile is-ancestor">
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${name}</p>
+        <p class="subtitle">${name}</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${name}</p>
+        <p class="subtitle">${name}</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${name}</p>
+        <p class="subtitle">${name}</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${name}</p>
+        <p class="subtitle">${name}</p>
+    </article>
+    </div>
+=======
 return`
 <div class="tile is-parent is-3">
 
@@ -37,6 +64,7 @@ return`
         <a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
         <a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
     </article>
+>>>>>>> 9fb9bf378d3ca6ae454f12475475bb39ceba3373
 </div>`
 }
 
