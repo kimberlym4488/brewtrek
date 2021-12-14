@@ -11,13 +11,54 @@ var resultsEl = $("#query-results");
  */
 function writeResult(name, id){
     // TODO: Add brewery information in the body of the list item.
-    return `
-    <li class="box">
-        <a href="./brewery.html?q=${id}">
-            ${name}
-        </a>
-    </li>`;
+
+// let rowEle = $("<div class='tile is-ancestor'>");
+// let column1Ele = $("<div class='title-parent'>");
+// let textEle = $("<article class='title is-child box'>");
+// let titleEle = $("<p class='title'>");
+// let subtitleEle = $("<p class='Subtitle'>");
+// titleEle.append(titleEle);
+// subtitleEle.append(subtitleEle);
+
+// column1Ele.append(rowEle);
+
+// let column2Ele = $("<div class='title-parent'>");
+// let textEle = $("<article class='title is-child box'>");
+// let titleEle = $("<p class='title'>")
+// let subtitleEle = $("<p class='Subtitle'>");
+// titleEle.append(titleEle);
+// subtitleEle.append(SubtitleEle);
+
+// column2Ele.append(rowEle);
+return 
+`<div class="tile is-ancestor">
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${One}</p>
+        <p class="subtitle">${Subtitle}</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${Two}</p>
+        <p class="subtitle">Subtitle</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${Three}</p>
+        <p class="subtitle">${Subtitle}</p>
+    </article>
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+        <p class="title">${Four}</p>
+        <p class="subtitle">${Subtitle}</p>
+    </article>
+    </div>
+</div>`
 }
+
 
 
 function getBreweries(latitude, longitude) {
