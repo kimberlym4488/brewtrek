@@ -9,7 +9,7 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
-function writeResult(name, id){
+function writeResult(data){
     // TODO: Add brewery information in the body of the list item.
 
 // let rowEle = $("<div class='tile is-ancestor'>");
@@ -32,9 +32,10 @@ function writeResult(name, id){
 // column2Ele.append(rowEle);
 return`
 <div class="tile is-parent is-3">
+
     <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${id}</p>
+        <a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
+        <a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
     </article>
 </div>`
 }
@@ -62,7 +63,7 @@ function printMainContainer(data){
         console.log(data);
         console.log(data[i].name)
         console.log(data[i].website_url)
-        resultsEl.append(writeResult(data[i].name, data[i].id));
+        resultsEl.append(writeResult(data[i]));
     }
 }
 
