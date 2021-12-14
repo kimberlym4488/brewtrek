@@ -49,6 +49,7 @@ function buttonClickHandler(event){
 }
 
 function startFacts() {
+
     $(".funFacts").empty();
     fetch('https://uselessfacts.jsph.pl/random.json?language=en')
       .then(function (response) {

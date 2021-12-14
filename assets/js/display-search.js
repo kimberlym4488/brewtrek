@@ -8,6 +8,7 @@ fetch(requestUrl)
     var htmlTemplate = `
     <p>${data.text}<p>`
     $(".funFacts").append(htmlTemplate);
+
   })
 
 function uselessFacts(){
@@ -16,6 +17,7 @@ function uselessFacts(){
         
              var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
              $(".funFacts").empty();
+
              fetch(requestUrl)
                .then(function (response) {
                  return response.json();

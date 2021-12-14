@@ -4,6 +4,7 @@ var params = new URLSearchParams(document.location.search);
 var query = `https://api.openbrewerydb.org/breweries/${params.get("q")}`;
 var nameEl = $("#brewery-name");
 var addressEl = $("#address");
+var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
@@ -16,7 +17,8 @@ function getBrewery(){
         .then(function(data){
             nameEl.text(data.name);
             addressEl.text(`${data.street}`)
-            cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`)
+            googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
+            cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
             phoneEl.text(data.phone);
             phoneEl.attr("href", `tel:${data.phone}`);
             urlEl.text(data.website_url);
@@ -25,6 +27,9 @@ function getBrewery(){
         )
 }
 
+function delimitPhonenumber(number){
+
+}
 
 function startFacts() {
     $(".funFacts").empty();
@@ -35,6 +40,7 @@ function startFacts() {
       .then(function (data) {
         var htmlTemplate = `
         <p>${data.text}<p>`
+
         $(".funFacts").append(htmlTemplate);
         uselessFacts();
       })
@@ -46,6 +52,7 @@ function uselessFacts(){
         
              var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
              $(".funFacts").empty();
+
              fetch(requestUrl)
                .then(function (response) {
                  return response.json();
