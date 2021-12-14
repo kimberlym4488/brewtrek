@@ -10,27 +10,8 @@ var resultsEl = $("#query-results");
  * @returns a list item with a link to brewery.html
  */
 function writeResult(name, id){
-    // TODO: Add brewery information in the body of the list item.
+    // Added brewery information in the body of the list item.
 
-// let rowEle = $("<div class='tile is-ancestor'>");
-// let column1Ele = $("<div class='title-parent'>");
-// let textEle = $("<article class='title is-child box'>");
-// let titleEle = $("<p class='title'>");
-// let subtitleEle = $("<p class='Subtitle'>");
-// titleEle.append(titleEle);
-// subtitleEle.append(subtitleEle);
-
-// column1Ele.append(rowEle);
-
-// let column2Ele = $("<div class='title-parent'>");
-// let textEle = $("<article class='title is-child box'>");
-// let titleEle = $("<p class='title'>")
-// let subtitleEle = $("<p class='Subtitle'>");
-// titleEle.append(titleEle);
-// subtitleEle.append(SubtitleEle);
-
-// column2Ele.append(rowEle);
-<<<<<<< HEAD
 return `<div class="tile is-ancestor">
     <div class="tile is-parent">
     <article class="tile is-child box">
@@ -56,14 +37,6 @@ return `<div class="tile is-ancestor">
         <p class="subtitle">${name}</p>
     </article>
     </div>
-=======
-return`
-<div class="tile is-parent is-3">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${id}</p>
-    </article>
->>>>>>> 9fb9bf378d3ca6ae454f12475475bb39ceba3373
 </div>`
 }
 
