@@ -17,8 +17,7 @@ function getBrewery(){
         .then(function(data){
             nameEl.text(data.name);
             addressEl.text(`${data.street}`)
-            // googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
-            googleLink.attr("href", `https://www.google.com/maps/place/${data.name.split(" ").join("+")}+${data.street}+${data.city}+${data.state}+${data.postal_code}`)
+            googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
             cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
             phoneEl.text(data.phone);
             phoneEl.attr("href", `tel:${data.phone}`);
