@@ -30,31 +30,12 @@ function writeResult(data){
 // subtitleEle.append(SubtitleEle);
 
 // column2Ele.append(rowEle);
-return `<div class="tile is-ancestor">
+return `<div class="tile is-ancestor is-3">
     <div class="tile is-parent">
       <article class="tile is-child box">
           <a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
           <a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
       </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-          <p class="title">${name}</p>
-          <p class="subtitle">${name}</p>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-          <p class="title">${name}</p>
-          <p class="subtitle">${name}</p>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-          <p class="title">${name}</p>
-          <p class="subtitle">${name}</p>
-      </article>
-    </div>
 </div>`
 }
 
