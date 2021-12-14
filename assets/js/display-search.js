@@ -7,7 +7,7 @@ fetch(requestUrl)
   .then(function (data) {
     var htmlTemplate = `
     <p>${data.text}<p>`
-    $(".subtitle").append(htmlTemplate);
+    $(".funFacts").append(htmlTemplate);
   })
 
 function uselessFacts(){
@@ -15,7 +15,7 @@ function uselessFacts(){
     setInterval(function(){
         
              var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
-             $(".subtitle").empty();
+             $(".funFacts").empty();
              fetch(requestUrl)
                .then(function (response) {
                  return response.json();
@@ -23,7 +23,7 @@ function uselessFacts(){
                .then(function (data) {
                  var htmlTemplate = `
                  <p>${data.text}<p>`
-                 $(".subtitle").append(htmlTemplate);
+                 $(".funFacts").append(htmlTemplate);
                })
          }
        ,4000);
