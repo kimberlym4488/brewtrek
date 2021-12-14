@@ -3,6 +3,7 @@
 var params = new URLSearchParams(document.location.search);
 var resultsEl = $("#query-results");
 
+
 /**
  * Writes a list item to be appended to breweries.html
  * @param {string} name name of the brewery
@@ -45,4 +46,39 @@ function printMainContainer(data){
     }
 }
 
+function startFacts() {
+    $(".subtitle").empty();
+    fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var htmlTemplate = `
+        <p>${data.text}<p>`
+        $(".subtitle").append(htmlTemplate);
+        uselessFacts();
+      })
+}
+
+function uselessFacts(){
+    
+    setInterval(function(){
+        
+             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+             $(".subtitle").empty();
+             fetch(requestUrl)
+               .then(function (response) {
+                 return response.json();
+               })
+               .then(function (data) {
+                 var htmlTemplate = `
+                 <p>${data.text}<p>`
+                 $(".subtitle").append(htmlTemplate);
+               })
+         }
+       ,4000);
+    }
+
+startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
+

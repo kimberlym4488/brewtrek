@@ -25,4 +25,39 @@ function getBrewery(){
         )
 }
 
+
+function startFacts() {
+    $(".subtitle").empty();
+    fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var htmlTemplate = `
+        <p>${data.text}<p>`
+        $(".subtitle").append(htmlTemplate);
+        uselessFacts();
+      })
+}
+
+function uselessFacts(){
+    
+    setInterval(function(){
+        
+             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+             $(".subtitle").empty();
+             fetch(requestUrl)
+               .then(function (response) {
+                 return response.json();
+               })
+               .then(function (data) {
+                 var htmlTemplate = `
+                 <p>${data.text}<p>`
+                 $(".subtitle").append(htmlTemplate);
+               })
+         }
+       ,4000);
+    }
+
+startFacts();
 getBrewery();

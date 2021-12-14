@@ -13,6 +13,7 @@ function displayTime() {
     <p style="font-weight:bolder">Pick your place.</p>
     <p style="font-weight:bolder">Have an epic ${today}.</p>`
     welcomeMessage.html(welcome);
+
 }
 
 function getLatLon(){
@@ -31,8 +32,6 @@ function getLatLon(){
         return;
         //}
         //can put data here
-        
-        //this object contains all the data we requested. SHould we have a fail safe if it doesn't work, like try your zip code?
       })
 };
 
@@ -42,7 +41,6 @@ function buttonClickHandler(event){
 //If nothing is entered, alert pops up to enter a search term.
         if (city.value==='') {
             $("#invalidEntry").text("Please enter a valid city!")
-        
             return;
         } 
         else {
@@ -50,5 +48,39 @@ function buttonClickHandler(event){
         }
 }
 
+function startFacts() {
+    $(".subtitle").empty();
+    fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var htmlTemplate = `
+        <p>${data.text}<p>`
+        $(".subtitle").append(htmlTemplate);
+        uselessFacts();
+      })
+}
+
+function uselessFacts(){
+    
+    setInterval(function(){
+        
+             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+             $(".subtitle").empty();
+             fetch(requestUrl)
+               .then(function (response) {
+                 return response.json();
+               })
+               .then(function (data) {
+                 var htmlTemplate = `
+                 <p>${data.text}<p>`
+                 $(".subtitle").append(htmlTemplate);
+               })
+         }
+       ,4000);
+    }
+
+startFacts();
 document.getElementById('btn').addEventListener("click", buttonClickHandler);
 displayTime();
