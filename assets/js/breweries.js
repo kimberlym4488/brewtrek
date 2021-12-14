@@ -30,6 +30,7 @@ function writeResult(name, id){
 // subtitleEle.append(SubtitleEle);
 
 // column2Ele.append(rowEle);
+<<<<<<< HEAD
 return `<div class="tile is-ancestor">
     <div class="tile is-parent">
     <article class="tile is-child box">
@@ -55,6 +56,14 @@ return `<div class="tile is-ancestor">
         <p class="subtitle">${name}</p>
     </article>
     </div>
+=======
+return`
+<div class="tile is-parent is-3">
+    <article class="tile is-child box">
+        <p class="title">${name}</p>
+        <p class="subtitle">${id}</p>
+    </article>
+>>>>>>> 9fb9bf378d3ca6ae454f12475475bb39ceba3373
 </div>`
 }
 
@@ -85,4 +94,39 @@ function printMainContainer(data){
     }
 }
 
+function startFacts() {
+    $(".funFacts").empty();
+    fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var htmlTemplate = `
+        <p>${data.text}<p>`
+        $(".funFacts").append(htmlTemplate);
+        uselessFacts();
+      })
+}
+function uselessFacts(){
+    
+    setInterval(function(){
+        
+             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+             $(".funFacts").empty();
+             fetch(requestUrl)
+               .then(function (response) {
+                 return response.json();
+               })
+               .then(function (data) {
+                 var htmlTemplate = `
+                 <p>${data.text}<p>`
+
+                 $(".funFacts").append(htmlTemplate);
+               })
+         }
+       ,4000);
+    }
+
+startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
+
