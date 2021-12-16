@@ -8,6 +8,7 @@ var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
+var favouriteBtn = $("#favourite");
 
 function getBrewery(){
     fetch(query)
@@ -15,20 +16,41 @@ function getBrewery(){
             return result.json();
         })
         .then(function(data){
+			console.log(data);
             nameEl.text(data.name);
+			nameEl.attr("data-id", params.get("q"));
             addressEl.text(`${data.street}`)
-            googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
-            cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
+			if(data.state === null){
+				googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.postal_code}`)
+				cityStateZipEl.text(`${data.city}  ${data.postal_code}`);
+			}else{
+				googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
+				cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
+			}
             phoneEl.text(data.phone);
             phoneEl.attr("href", `tel:${data.phone}`);
             urlEl.text(data.website_url);
             urlEl.attr("href", data.website_url);
-            }
-        )
+            
+		});
 }
 
 function delimitPhonenumber(number){
 
+}
+
+function setFavourite(){
+	var favourites = JSON.parse(localStorage.getItem("favourites"));
+	var brewery = {
+		name: nameEl.text(),
+		id: nameEl.attr("data-id")
+	};
+	if(favourites === null){
+		favourites = [brewery];
+	}else if(!favourites.some(item => item.name === brewery.name)){
+		favourites.push(brewery)
+	}
+	localStorage.setItem("favourites", JSON.stringify(favourites));
 }
 
 function startFacts() {
@@ -68,3 +90,4 @@ function uselessFacts(){
 
 startFacts();
 getBrewery();
+favouriteBtn.click(setFavourite);

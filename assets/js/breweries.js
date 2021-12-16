@@ -31,26 +31,28 @@ function writeResult(data){
 
 // column2Ele.append(rowEle);
 return`
-    <div class="">
-		<article class="container is-child box">
-			<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
-			<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
-			<button class="button is-warning" onclick=setFavourite() data-name=${data.name} data-id=${data.id}>Set Favourite</button>
-		</article>
+<div class="tile is parent">
+	<article class="tile is-child box">
+		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
+		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
+		<button class="button is-warning" onclick=setFavourite(event) data-name=${data.name} data-id=${data.id}>Add to Favourites</button>
+	</article>
 </div>`
 }
 
 function setFavourite(event){
-	var favourites = localStorage.getItem("favourites");
-	var name = event.currentTarget.dataset.name;
-	var id = event.currentTarget.dataset.id;
-	if(favourites === null){
-		favourites = [{
-			name: name,
-			id: id 
-		}];
+	var favourites = JSON.parse(localStorage.getItem("favourites"));
+
+	var brewery = {
+		name: event.currentTarget.dataset.name,
+		id: event.currentTarget.dataset.id
 	}
-	localStorage.setItem("favourites",)
+	if(favourites === null){
+		favourites = [brewery];
+	}else if(!favourites.some(item => item.name === brewery.name)){
+		favourites.push(brewery);
+	}
+	localStorage.setItem("favourites", JSON.stringify(favourites));
 }
 
 function getBreweries(latitude, longitude) {
