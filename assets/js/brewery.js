@@ -8,7 +8,7 @@ var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
-var favouriteBtn = $("#favourite");
+var favoriteBtn = $("#favorite");
 
 function getBrewery(){
     fetch(query)
@@ -39,18 +39,18 @@ function delimitPhonenumber(number){
 
 }
 
-function setFavourite(){
-	var favourites = JSON.parse(localStorage.getItem("favourites"));
+function setFavorite(){
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
 	var brewery = {
 		name: nameEl.text(),
 		id: nameEl.attr("data-id")
 	};
-	if(favourites === null){
-		favourites = [brewery];
-	}else if(!favourites.some(item => item.name === brewery.name)){
-		favourites.push(brewery)
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery)
 	}
-	localStorage.setItem("favourites", JSON.stringify(favourites));
+	localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function startFacts() {
@@ -90,4 +90,4 @@ function uselessFacts(){
 
 startFacts();
 getBrewery();
-favouriteBtn.click(setFavourite);
+favoriteBtn.click(setFavorite);

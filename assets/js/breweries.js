@@ -35,24 +35,24 @@ return`
 	<article class="tile is-child box">
 		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
 		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
-		<button class="button is-warning" onclick=setFavourite(event) data-name=${data.name} data-id=${data.id}>Add to Favourites</button>
+		<button class="button is-warning" onclick=setFavorite(event) data-name=${data.name} data-id=${data.id}>Add to Favorites</button>
 	</article>
 </div>`
 }
 
-function setFavourite(event){
-	var favourites = JSON.parse(localStorage.getItem("favourites"));
+function setFavorite(event){
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
 
 	var brewery = {
 		name: event.currentTarget.dataset.name,
 		id: event.currentTarget.dataset.id
 	}
-	if(favourites === null){
-		favourites = [brewery];
-	}else if(!favourites.some(item => item.name === brewery.name)){
-		favourites.push(brewery);
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery);
 	}
-	localStorage.setItem("favourites", JSON.stringify(favourites));
+	localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function getBreweries(latitude, longitude) {
