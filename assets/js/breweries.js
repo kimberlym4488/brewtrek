@@ -9,47 +9,48 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
-function writeResult(name, id){
+// function writeResult(name, id){
     // Added brewery information in the body of the list item.
-return `<div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    ${name}
-                  </div>
-                </div>
-              </div>`
-// return `<div class="tile is-ancestor">
-//     <div class="tile is-parent">
-//     <article class="tile is-child box">
-//         <p class="title">${name}</p>
-//         <p class="subtitle">${name}</p>
-//     </article>
-//     </div>
-//     <div class="tile is-parent">
-//     <article class="tile is-child box">
-//         <p class="title">${name}</p>
-//         <p class="subtitle">${name}</p>
-//     </article>
-//     </div>
-//     <div class="tile is-parent">
-//     <article class="tile is-child box">
-//         <p class="title">${name}</p>
-//         <p class="subtitle">${name}</p>
-//     </article>
-//     </div>
-//     <div class="tile is-parent">
-//     <article class="tile is-child box">
-//         <p class="title">${name}</p>
-//         <p class="subtitle">${name}</p>
-//     </article>
-//     </div>
-// </div>`
+
+function writeResult(data){
+    // TODO: Add brewery information in the body of the list item.
 
 
 // $("#").append(div)
+// column1Ele.append(rowEle);
+
+// let column2Ele = $("<div class='title-parent'>");
+// let textEle = $("<article class='title is-child box'>");
+// let titleEle = $("<p class='title'>")
+// let subtitleEle = $("<p class='Subtitle'>");
+// titleEle.append(titleEle);
+// subtitleEle.append(SubtitleEle);
+
+// column2Ele.append(rowEle);
+return`
+<div class="tile is parent">
+	<article class="tile is-child box">
+		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
+		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
+		<button class="button is-warning" onclick=setFavorite(event) data-name=${data.name} data-id=${data.id}>Add to Favorites</button>
+	</article>
+</div>`
 }
 
+function setFavorite(event){
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
 
+	var brewery = {
+		name: event.currentTarget.dataset.name,
+		id: event.currentTarget.dataset.id
+	}
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery);
+	}
+	localStorage.setItem("favorites", JSON.stringify(favorites));
+}
 
 function getBreweries(latitude, longitude) {
     // Insert the API url to get a list of weather data
@@ -64,7 +65,7 @@ function getBreweries(latitude, longitude) {
         return;
       })
 
-    } 
+  } 
      
 function printMainContainer(data){
     //Add contents into daily cards.
@@ -72,7 +73,7 @@ function printMainContainer(data){
         console.log(data);
         console.log(data[i].name)
         console.log(data[i].website_url)
-        resultsEl.append(writeResult(data[i].name, data[i].id));
+        resultsEl.append(writeResult(data[i]));
     }
 }
 
@@ -111,4 +112,3 @@ function uselessFacts(){
 
 startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
-
