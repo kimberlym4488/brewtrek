@@ -101,4 +101,51 @@ a.firstChild{
     font-size:1.5rem;
 }
 
+.row{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    @media (min-width: 992px) and (max-width: 1199.98px)
+}
+
+.bd-example-row .row>[class^=col-] {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2); 
+    margin: 20px;
+}
+
+.bd-example{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2); 
+    
+}
+
+
+.col-sm {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-right: 20px;
+    background-color: bisque;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 5px 4px 4px rgb(8, 8, 8);
+    
+   
+}
+
+
 

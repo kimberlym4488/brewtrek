@@ -11,33 +11,42 @@ var resultsEl = $("#query-results");
  */
 function writeResult(name, id){
     // Added brewery information in the body of the list item.
+return `<div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    ${name}
+                  </div>
+                </div>
+              </div>`
+// return `<div class="tile is-ancestor">
+//     <div class="tile is-parent">
+//     <article class="tile is-child box">
+//         <p class="title">${name}</p>
+//         <p class="subtitle">${name}</p>
+//     </article>
+//     </div>
+//     <div class="tile is-parent">
+//     <article class="tile is-child box">
+//         <p class="title">${name}</p>
+//         <p class="subtitle">${name}</p>
+//     </article>
+//     </div>
+//     <div class="tile is-parent">
+//     <article class="tile is-child box">
+//         <p class="title">${name}</p>
+//         <p class="subtitle">${name}</p>
+//     </article>
+//     </div>
+//     <div class="tile is-parent">
+//     <article class="tile is-child box">
+//         <p class="title">${name}</p>
+//         <p class="subtitle">${name}</p>
+//     </article>
+//     </div>
+// </div>`
 
-return `<div class="tile is-ancestor">
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-</div>`
+
+// $("#").append(div)
 }
 
 
