@@ -9,7 +9,7 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
-function writeResult(name, id){
+function writeResult(data){
     // TODO: Add brewery information in the body of the list item.
 
 // let rowEle = $("<div class='tile is-ancestor'>");
@@ -30,44 +30,30 @@ function writeResult(name, id){
 // subtitleEle.append(SubtitleEle);
 
 // column2Ele.append(rowEle);
-<<<<<<< HEAD
-return `<div class="tile is-ancestor">
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${name}</p>
-    </article>
-    </div>
-=======
 return`
-<div class="tile is-parent is-3">
-    <article class="tile is-child box">
-        <p class="title">${name}</p>
-        <p class="subtitle">${id}</p>
-    </article>
->>>>>>> 9fb9bf378d3ca6ae454f12475475bb39ceba3373
+<div class="tile is parent">
+	<article class="tile is-child box">
+		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
+		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
+		<button class="button is-warning" onclick=setFavorite(event) data-name=${data.name} data-id=${data.id}>Add to Favorites</button>
+	</article>
 </div>`
 }
 
+function setFavorite(event){
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
 
+	var brewery = {
+		name: event.currentTarget.dataset.name,
+		id: event.currentTarget.dataset.id
+	}
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery);
+	}
+	localStorage.setItem("favorites", JSON.stringify(favorites));
+}
 
 function getBreweries(latitude, longitude) {
     // Insert the API url to get a list of weather data
@@ -82,7 +68,7 @@ function getBreweries(latitude, longitude) {
         return;
       })
 
-    } 
+  } 
      
 function printMainContainer(data){
     //Add contents into daily cards.
@@ -90,7 +76,7 @@ function printMainContainer(data){
         console.log(data);
         console.log(data[i].name)
         console.log(data[i].website_url)
-        resultsEl.append(writeResult(data[i].name, data[i].id));
+        resultsEl.append(writeResult(data[i]));
     }
 }
 
