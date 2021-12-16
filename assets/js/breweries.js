@@ -30,16 +30,28 @@ function writeResult(data){
 // subtitleEle.append(SubtitleEle);
 
 // column2Ele.append(rowEle);
-return `<div class="tile is-ancestor is-3">
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-          <a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
-          <a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
-      </article>
+return`
+    <div class="">
+		<article class="container is-child box">
+			<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
+			<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
+			<button class="button is-warning" onclick=setFavourite() data-name=${data.name} data-id=${data.id}>Set Favourite</button>
+		</article>
 </div>`
 }
 
-
+function setFavourite(event){
+	var favourites = localStorage.getItem("favourites");
+	var name = event.currentTarget.dataset.name;
+	var id = event.currentTarget.dataset.id;
+	if(favourites === null){
+		favourites = [{
+			name: name,
+			id: id 
+		}];
+	}
+	localStorage.setItem("favourites",)
+}
 
 function getBreweries(latitude, longitude) {
     // Insert the API url to get a list of weather data
@@ -54,7 +66,7 @@ function getBreweries(latitude, longitude) {
         return;
       })
 
-    } 
+  } 
      
 function printMainContainer(data){
     //Add contents into daily cards.
