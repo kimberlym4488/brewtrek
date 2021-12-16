@@ -10,59 +10,64 @@
 }*/
 .main-background
 {
-    
-    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../Images/Mainbackground.jpeg");
-
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("../Images/Mainbackground.jpeg");
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 body{
     height:100vh;
-    scroll-behavior:none;
-
 }
 .header1 {
     background-color: #2d3e50;
+}
+
+header{ 
+    background-color:rgb(255,255,255, .7); 
+
+}
+header img{ 
+   max-width:50vw;  
 }
 
 body {
     margin: 0;
 }
 
+
 h1 {
     margin: 0 0 0.5rem;
-    line-height: 1.25;
+    line-height: 1.5rem;
 }
-
-
-.navbar-item{
-    width:400px;
-    height:auto;
-}
-
-.logo{
-    width:350px;
-   max-height:auto;
-}
-
 
 #welcomeMessage{
     background-color:#43AA8B;
     color:white;
-    font-size:1rem;
+    font-size:1.5rem;
     text-align:center;
 }
-
-#time p{
+#welcomeMessage p{
     background-color:#43AA8B;
     color:white;
-    font-size:1;
+    font-size:1.25rem;
+    line-height:2rem;
     text-align:center;
 }
-
 #invalidEntry{
-    padding-bottom:2rem;
+    line-height:2rem;
     color: #F94144;
-    font-weight:bold;
+    margin-top:-1rem;
+    margin-bottom:1rem;
+    font-size:1.75rem;
+
+}
+
+.button.is-primary{
+    background-color:#F94144;
+}
+
+.button.is-primary:hover{
+    background-color:#43AA8B;
 }
 
 .text-center {
@@ -73,20 +78,26 @@ h1 {
     color: #ffffff;
 }
 
-#Contributors {
-    font-weight:bolder;
-    font-size: 1.2rem;
-  
+.uselessFact{
+    border-top:rgb(87,117,144) .5 1rem;
+   
 }
-.footer{
-    margin-top:3rem;
-    padding-bottom:3rem;
-    background-color:rgb(87,117,144,.5);
+.tile.is-parent{
+    padding:0;
+    border-top:rgb(87,117,144) .5 1rem;
     border-radius:4px;
-    border:rgb(87,117,144) .5 5px;
-
 }
 
+#Contributors {
+
+    font-size: 1.2rem;
+}
+
+
+
+.footerStyle{
+    padding-bottom:-3rem;
+}
 .footerStyle > a{
     font-weight:bolder;
     display: inline-block;
@@ -101,9 +112,12 @@ a.firstChild{
     font-size:1.5rem;
 }
 
-.tile{
-    display: flex;
-    flex-wrap: wrap;
+
+.tester{
+    background-color:rgb(87,117,144,.4);
+    border-radius:4px;
+    border:rgb(87,117,144) .5 5px;
+    padding:1rem;
 }
 
 
