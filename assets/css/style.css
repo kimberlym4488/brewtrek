@@ -104,7 +104,25 @@ a.firstChild{
 .tile{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    
+  justify-content: center;
+    margin: 10px 10px 10px 10px;
 }
 
 
 
+.title{
+   font-size: larger;
+   text-align: center;
+}
+
+.subtitle{
+    font-size: medium;
+    text-align: center;
+ }
+
+ .button{
+    font-size: small;
+    text-align: center;
+ }
