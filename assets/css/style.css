@@ -101,5 +101,10 @@ a.firstChild{
     font-size:1.5rem;
 }
 
+.tile{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 

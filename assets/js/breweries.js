@@ -9,17 +9,14 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
+// function writeResult(name, id){
+    // Added brewery information in the body of the list item.
+
 function writeResult(data){
     // TODO: Add brewery information in the body of the list item.
 
-// let rowEle = $("<div class='tile is-ancestor'>");
-// let column1Ele = $("<div class='title-parent'>");
-// let textEle = $("<article class='title is-child box'>");
-// let titleEle = $("<p class='title'>");
-// let subtitleEle = $("<p class='Subtitle'>");
-// titleEle.append(titleEle);
-// subtitleEle.append(subtitleEle);
 
+// $("#").append(div)
 // column1Ele.append(rowEle);
 
 // let column2Ele = $("<div class='title-parent'>");
@@ -115,4 +112,3 @@ function uselessFacts(){
 
 startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
-
