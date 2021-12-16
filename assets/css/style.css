@@ -8,6 +8,12 @@
     background-color: #2d3e50;
     background-color:white;
 }*/
+.main-background
+{
+    
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../Images/Mainbackground.jpeg");
+
+}
 
 body{
     height:100vh;
