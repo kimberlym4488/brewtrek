@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>How you brewin'?</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-        <!-- May consider a separate stylesheet per page, but also this may be fine -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
-      </head>
-    <body class="main-background">
-        <header class = "container has-text-centered" >
-            <a href = "https://kimberlym4488.github.io/brewtrek/">
-              <img src="assets/Images/logo.PNG" alt = "BrewTrek" class="is-inline-block" style="width:300px"  ></a>
-        
-        </header>
-        <div style="border:none; text-align: center;">
-            <a href="./" class="button is-primary" style="background-color:#F94144">Back</a>
-          </div>
-        <main>
-            <!-- #query-results will contain the list of breweries retrieved from the user's search -->
-            <!-- ###TODO: may use different tags/classes for integration with bulma -->
-        
-                  
-                </div>
-            <div id="query-results" class="tile is-ancestor">
-            </div>
-        </main>
-           <!--Display useless fact here?-->
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How you brewin'?</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- May consider a separate stylesheet per page, but also this may be fine -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="main-background">
+    <header class = "container has-text-centered" >
+        <a href = "https://kimberlym4488.github.io/brewtrek/">
+          <img src="assets/Images/logo.PNG" alt = "BrewTrek" class="is-inline-block" style="width:300px"  >
+        </a>
+    </header>
+    <div style="border:none; text-align: center;">
+        <a href="./" class="button is-primary" style="background-color:#F94144">Back</a>
+    </div>
+    <main>
+        <!-- #query-results will contain the list of breweries retrieved from the user's search -->
+        <div id="query-results" class="tile is-ancestor">
+          
+        </div>
+    </main>
+        <!--Display useless fact here?-->
     <div class="tile is-parent has-text-centered" id="uselessFact">
-        <article class="tile is-child box is-inline-block">
-          <p class="title">Take a fun-fact to go!</p>
-          <p class="funFacts">Fun Fact!</p>
-        </article>
+    <article class="tile is-child box is-inline-block">
+      <p class="title">Take a fun-fact to go!</p>
+      <p class="funFacts">Fun Fact!</p>
+    </article>
     </div>
 
-        <script src="./assets/js/breweries.js"></script>
-    </body>
+    <script src="./assets/js/breweries.js"></script>
+  </body>
 </html>
