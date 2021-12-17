@@ -23,11 +23,19 @@ function getLatLon(){
       .then(async function (response) {
         const data = await response.json();
         console.log(data)
-        var latitude = data[0].lat;
-        var longitude = data[0].lon;
-        console.log(longitude);
-        console.log(latitude);
-        document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}`);
+
+        if (data.length == 0)
+        {
+          alert("Invalid city!")
+        }
+        else
+        {
+          var latitude = data[0].lat;
+          var longitude = data[0].lon;
+          console.log(longitude);
+          console.log(latitude);
+          document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}`);
+        }
         // getBreweries(latitude,longitude);
         return;
         //}
