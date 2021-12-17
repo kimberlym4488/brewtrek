@@ -113,12 +113,35 @@ a.firstChild{
 }
 
 
+.tile{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+  justify-content: center;
+    margin: 10px 10px 10px 10px;
+ 
 .tester{
     background-color:rgb(87,117,144,.4);
     border-radius:4px;
     border:rgb(87,117,144) .5 5px;
     padding:1rem;
+
 }
 
 
 
+.title{
+   font-size: larger;
+   text-align: center;
+}
+
+.subtitle{
+    font-size: medium;
+    text-align: center;
+ }
+
+ .button{
+    font-size: small;
+    text-align: center;
+ }
