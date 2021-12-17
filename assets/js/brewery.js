@@ -27,7 +27,7 @@ function getBrewery(){
 				googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
 				cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
 			}
-            phoneEl.text("Phone: " + data.phone);
+            phoneEl.text(data.phone);
             phoneEl.attr("href", `tel:${data.phone}`);
             urlEl.text(data.website_url);
             urlEl.attr("href", data.website_url);
