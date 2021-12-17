@@ -79,7 +79,7 @@ function uselessFacts(){
                  $(".funFacts").append(htmlTemplate);
                })
          }
-       ,4000);
+       ,8000);
     }
 
 startFacts();

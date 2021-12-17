@@ -8,15 +8,56 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <link rel="stylesheet" href="./assets/css/style.css" />
       </head>
-    <body>
-        <header class = "container has-text-centered" >
-            <a href = "https://kimberlym4488.github.io/brewtrek/">
-              <img src="assets/Images/logo.PNG" alt = "BrewTrek" class="is-inline-block" style="width:300px"  >
+
+<body class="main-background">
+        
+<header>
+    <nav class="navbar is-justify-content-space-between is-spaced has-shadow" role="navigation" aria-label="main navigation" >
+        <div class="navbar-brand navbar-start is-fullwidth"  >
+            <a class="navbar-item is-fullwidth" id="mainLogo" width="300px" href="https://kimberlym4488.github.io/brewtrek/">
+              <img src="assets/Images/logo.PNG">
             </a>
+         
+            <div class="navbar-end">
+              <div class="navbar-item">
+                    <button class="button favoritesButton  is-primary is-medium is-centered has-text-centered level-item " id="btn">View Favorites</button>
+            </div>
+          </div>
+        </div>
+    </nav>
+</header>
+        <br>
+        <div class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <nav class="is-inline-block table-container table is-bordered is-striped is-hoverable">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th title="Name">Name</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <thtitle="Name">Click a name to see more details.</th>
+                  </tr>
+                </tfoot>
+                  <tbody class="favoritesTab">
+                  <!--JS Favorites List-->
+                  </tbody>
+                </table>
+              </nav>
+          </div>
+          <button class="modal-close is-large" aria-label="close"></button>
+        </div>
         </header>
         <!-- main will contain the information retrieved from a brewery selected on breweries.html -->
+        <div style="border:none; text-align: center;">
+            <a href="./" class="button is-medium backButton">Back</a>
+          </div>
+          <br>
 
-        <main class="container has-text-centered">
+        <main class="container  has-text-centered">
             <div class="box container is-inline-block">
                 <h2 id="brewery-name" class="title">Brewery Name</h2>
                 <a id="lmgtfy"><p id="address">Address</p>
@@ -24,7 +65,7 @@
                 <button class="button is-warning" id="favourite">Add to Favorites</button>
             </div>
             <ul class="box container columns m-0">
-                <li class="column"><a href="#" id="phone" type="tel">Phone Number<br />###-##-##</a></li>
+                <li class="column"><a href="#" id="phone" type="tel">Phone Number<br>###-##-####</a></li>
                 <li class="column"><a href="#" id="url">Web Page</a></li>
             </ul>
         </main>
