@@ -8,44 +8,62 @@ var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
-var favoriteBtn = $("#favourite");
+var favoriteBtn = $("#favorite");
+var subtitleEl = $(".subtitle")
+var titleEl = $(".title")
 
-function getBrewery() {
-  fetch(query)
-    .then(function (result) {
-      return result.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      nameEl.text(data.name);
-      nameEl.attr("data-id", params.get("q"));
-      addressEl.text(`${data.street}`)
-      if (data.state === null) {
-        googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.postal_code}`)
-        cityStateZipEl.text(`${data.city}  ${data.postal_code}`);
-      } else {
-        googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
-        cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
-      }
-      phoneEl.text(data.phone);
-      phoneEl.attr("href", `tel:${data.phone}`);
-      urlEl.text(data.website_url);
-      urlEl.attr("href", data.website_url);
-    });
+function getBrewery(){
+    fetch(query)
+        .then(function(result){
+            return result.json();
+        })
+        .then(function(data){
+			console.log(data);
+            nameEl.text(data.name);
+			nameEl.attr("data-id", params.get("q"));
+            addressEl.text(`${data.street}`)
+			if(data.state === null){
+				googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.postal_code}`)
+				cityStateZipEl.text(`${data.city}  ${data.postal_code}`);
+			}else{
+				googleLink.attr("href", `https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}`)
+				cityStateZipEl.text(`${data.city}, ${data.state}  ${data.postal_code}`);
+			}
+            phoneEl.text(delineatePhoneNumber(data.phone));
+            phoneEl.attr("href", `tel:${data.phone}`);
+            urlEl.text(data.website_url);
+            urlEl.attr("href", data.website_url);
+		});
 }
 
-function setFavorite() {
-  var favorites = JSON.parse(localStorage.getItem("favorites"));
-  var brewery = {
-    name: nameEl.text(),
-    id: nameEl.attr("data-id")
-  };
-  if (favorites === null) {
-    favorites = [brewery];
-  } else if (!favorites.some(item => item.name === brewery.name)) {
-    favorites.push(brewery)
-  }
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+function delineatePhoneNumber(number){
+	number = "" + number;
+	number = number.split("")
+	// OpenBreweryDB might not actually include country codes smh.
+	var countryCode = "";
+	if(number.length > 10){
+		countryCode += number.slice(0, number.length - 10).join("");
+	}
+	var rootNumber = number.slice(number.length - 10, number.length);
+	rootNumber.splice(6, 0, "-");
+	rootNumber.splice(3, 0, " ");
+	rootNumber.splice(3, 0, ")");
+	rootNumber.splice(0, 0, "(");
+	return (countryCode + " " + rootNumber.join("")).trim();
+}
+
+function setFavorite(){
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
+	var brewery = {
+		name: nameEl.text(),
+		id: nameEl.attr("data-id")
+	};
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery)
+	}
+	localStorage.setItem("favorites", JSON.stringify(favorites));
   window.location.reload();
 }
 

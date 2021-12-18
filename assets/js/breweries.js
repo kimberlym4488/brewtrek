@@ -2,6 +2,17 @@
 
 var params = new URLSearchParams(document.location.search);
 var resultsEl = $("#query-results");
+var nextBtn = $("#next");
+var previousBtn = $("#previous")
+var pageNumber = params.get("p");
+if(!pageNumber){
+	pageNumber = "1";
+}
+if(pageNumber !== "1"){
+	previousBtn.removeAttr("disabled")
+}
+var latitude = params.get("lat");
+var longitude = params.get("lon");
 
 /**
  * Writes a list item to be appended to breweries.html
@@ -9,13 +20,8 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
-// function writeResult(name, id){
-    // Added brewery information in the body of the list item.
-
 function writeResult(data){
-    // TODO: Add brewery information in the body of the list item.
-
-return`
+	return`
 <div class="tile is parent">
 	<article class="tile is-child box">
 		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
@@ -26,35 +32,34 @@ return`
 }
 
 function setFavorite(event){
-	var favorites = JSON.parse(localStorage.getItem("favorites"));
-  console.log(event.currentTarget);
-	var brewery = {
-		name: event.currentTarget.dataset.name,
-		id: event.currentTarget.dataset.id
-	}
-	if(favorites === null){
-		favorites = [brewery];
-	}else if(!favorites.some(item => item.name === brewery.name)){
-		favorites.push(brewery);
-	}
-	localStorage.setItem("favorites", JSON.stringify(favorites));
-  window.location.reload();
+		var favorites = JSON.parse(localStorage.getItem("favorites"));
+	console.log(event.currentTarget);
+		var brewery = {
+			name: event.currentTarget.dataset.name,
+			id: event.currentTarget.dataset.id
+		}
+		if(favorites === null){
+			favorites = [brewery];
+		}else if(!favorites.some(item => item.name === brewery.name)){
+			favorites.push(brewery);
+		}
+		localStorage.setItem("favorites", JSON.stringify(favorites));
+	window.location.reload();
 }
 
 $(".favoritesButton").on ("click", function(event){
-  event.preventDefault();
-  $(".modal").addClass("is-active");
-  console.log($(".modal"));
+	event.preventDefault();
+	$(".modal").addClass("is-active");
+	console.log($(".modal"));
 })
 
 $(".modal-close").on("click", function(event){
-  event.preventDefault();
-  $(".modal").removeClass("is-active");
-   console.log($(".modal"));
+	event.preventDefault();
+	$(".modal").removeClass("is-active");
+	console.log($(".modal"));
 })
 
 function getFavorites(){
-
 var favoritesList=
 JSON.parse(localStorage.getItem("favorites"));
 console.log(favoritesList)
@@ -77,20 +82,30 @@ $(".tableRow").append(viewFavorites);
   }
 }
 
-function getBreweries(latitude, longitude) {
+function getBreweries(latitude, longitude, page) {
     // Insert the API url to get a list of weather data
-    var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=1`;
+    var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=${page}`;
     
     fetch(requestUrl)
-      .then(async function (response) {
-        var data = await response.json();
-        printMainContainer(data);
-        return;
-      })
+		.then(async function (response) {
+			var data = await response.json();
+			printMainContainer(data);
+			return;
+		})
   } 
      
 function printMainContainer(data){
     //Add contents into daily cards.
+	if(data.length < 1){
+		resultsEl.append(
+`<div class="tile is parent">
+	<article class="tile is-child box">
+		<p>No results! We've ran out of breweries.</p>
+	</article>
+</div>`
+		)
+		nextBtn.attr("disabled", "true");
+	}
     for (var i = 0; i<data.length; i++) {
         resultsEl.append(writeResult(data[i]));
     }
@@ -99,36 +114,44 @@ function printMainContainer(data){
 function startFacts() {
     $(".funFacts").empty();
     fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        var htmlTemplate = `
-        <p>${data.text}<p>`
-        $(".funFacts").append(htmlTemplate);
-        uselessFacts();
-      })
+		.then(function (response) {
+			return response.json();
+		})
+		.then(function (data) {
+			var htmlTemplate = `
+			<p>${data.text}<p>`
+			$(".funFacts").append(htmlTemplate);
+			uselessFacts();
+		})
 }
-function uselessFacts(){
-    
-    setInterval(function(){
-        
-             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
-             $(".funFacts").empty();
-             fetch(requestUrl)
-               .then(function (response) {
-                 return response.json();
-               })
-               .then(function (data) {
-                 var htmlTemplate = `
-                 <p>${data.text}<p>`
 
-                 $(".funFacts").append(htmlTemplate);
-               })
-         }
-       ,10000);
-    }
+function uselessFacts(){
+    setInterval(function(){  
+		var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+		$(".funFacts").empty();
+		fetch(requestUrl)
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				var htmlTemplate = `
+				<p>${data.text}<p>`;
+
+				$(".funFacts").append(htmlTemplate);
+			})
+    }, 10000);
+}
+
+nextBtn.click(function(){
+	pageNumber++;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+})
+
+previousBtn.click(function(){
+	pageNumber--;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+});
 
 startFacts();
-getBreweries(params.get("lat"), params.get("lon"));
+getBreweries(latitude, longitude, pageNumber);
 getFavorites();
