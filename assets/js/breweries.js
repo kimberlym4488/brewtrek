@@ -5,7 +5,7 @@ var resultsEl = $("#query-results");
 var nextBtn = $("#next");
 var previousBtn = $("#previous")
 var pageNumber = params.get("p");
-if(!pageNumber || pageNumber ){
+if(!pageNumber){
 	pageNumber = "1";
 }
 if(pageNumber !== "1"){
