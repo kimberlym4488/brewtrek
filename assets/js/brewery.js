@@ -74,16 +74,19 @@ console.log(favoritesList)
     for(var i=0; i<favoritesList.length;i++){
     console.log(favoritesList[i].name);
 var viewFavorites=
-  `
-    <tr>
-      <td title="">${favoritesList[i].name} 
+    `
+    <tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+      <td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
       </td>
     </tr>
-  `
+    `
 $(".favoritesTab").append(viewFavorites)
   }
 }
 
+function openWin(){
+  console.log("You clicked the favorite")
+}
 function startFacts() {
     $(".funFacts").empty();
     fetch('https://uselessfacts.jsph.pl/random.json?language=en')

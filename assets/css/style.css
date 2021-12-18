@@ -85,9 +85,37 @@ h1 {
     background-color:#43AA8B;
 }
 
+
+.modal-content{
+    padding:2rem;
+}
+
+
+
+.favoritesTab{
+    padding:2rem;
+    margin-top:2rem;
+}
+
+
+.tableData{
+    background-color:white;
+    color: #2d3e50;
+    font-weight:bold;
+    padding:2rem;
+    margin-top:2rem;
+}
+
+.thtitle{
+    background-color:#F94144;
+    color:white;
+    font-size:large;
+}
 .text-center {
     text-align: center;
 }
+
+
 
 .text-white {
     color: #ffffff;
@@ -95,8 +123,8 @@ h1 {
 
 .uselessFact{
     border-top:rgb(87,117,144) .5 1rem;
-   
 }
+
 .tile.is-parent{
     padding:0;
     border-top:rgb(87,117,144) .5 1rem;
@@ -137,7 +165,6 @@ a.firstChild{
     border-radius:4px;
     border:rgb(87,117,144) .5 5px;
     padding:1rem;
-
 }
 
 .title{
