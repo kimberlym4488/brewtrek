@@ -2,6 +2,9 @@
 
 var params = new URLSearchParams(document.location.search);
 var resultsEl = $("#query-results");
+var nextBtn = $("#next");
+var previousBtn = $("previous")
+var pageNumber = params.get("p");
 
 /**
  * Writes a list item to be appended to breweries.html
@@ -9,13 +12,8 @@ var resultsEl = $("#query-results");
  * @param {number} id openbrewerydb id of the brewery
  * @returns a list item with a link to brewery.html
  */
-// function writeResult(name, id){
-    // Added brewery information in the body of the list item.
-
 function writeResult(data){
-    // TODO: Add brewery information in the body of the list item.
-
-return`
+	return`
 <div class="tile is parent">
 	<article class="tile is-child box">
 		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
@@ -26,55 +24,55 @@ return`
 }
 
 function setFavorite(event){
-	var favorites = JSON.parse(localStorage.getItem("favorites"));
-  console.log(event.currentTarget);
-	var brewery = {
-		name: event.currentTarget.dataset.name,
-		id: event.currentTarget.dataset.id
-	}
-	if(favorites === null){
-		favorites = [brewery];
-	}else if(!favorites.some(item => item.name === brewery.name)){
-		favorites.push(brewery);
-	}
-	localStorage.setItem("favorites", JSON.stringify(favorites));
-  window.location.reload();
+		var favorites = JSON.parse(localStorage.getItem("favorites"));
+	console.log(event.currentTarget);
+		var brewery = {
+			name: event.currentTarget.dataset.name,
+			id: event.currentTarget.dataset.id
+		}
+		if(favorites === null){
+			favorites = [brewery];
+		}else if(!favorites.some(item => item.name === brewery.name)){
+			favorites.push(brewery);
+		}
+		localStorage.setItem("favorites", JSON.stringify(favorites));
+	window.location.reload();
 }
 
 $(".favoritesButton").on ("click", function(event){
-  event.preventDefault();
-  $(".modal").addClass("is-active");
-  console.log($(".modal"));
+	event.preventDefault();
+	$(".modal").addClass("is-active");
+	console.log($(".modal"));
 })
 
 $(".modal-close").on("click", function(event){
-  event.preventDefault();
-  $(".modal").removeClass("is-active");
-   console.log($(".modal"));
+	event.preventDefault();
+	$(".modal").removeClass("is-active");
+	console.log($(".modal"));
 })
 
 function getFavorites(){
 
-var favoritesList=
-JSON.parse(localStorage.getItem("favorites"));
-console.log(favoritesList)
-//if favoritesList.length===0 {} or !favoritesList.length
-    if (favoritesList===null){
-    return;
-    }
+	var favoritesList=
+	JSON.parse(localStorage.getItem("favorites"));
+	console.log(favoritesList)
+	//if favoritesList.length===0 {} or !favoritesList.length
+		if (favoritesList===null){
+		return;
+		}
 
-    for(var i=0; i<favoritesList.length;i++){
-    console.log(favoritesList[i].id);
+		for(var i=0; i<favoritesList.length;i++){
+		console.log(favoritesList[i].id);
 
-var viewFavorites=
-    `
-    <tr class = p-3 onclick="openWin(${favoritesList[i].id})">
-      <td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
-      </td>
-    </tr>
-    `
-$(".favoritesTab").append(viewFavorites)
-  }
+	var viewFavorites=
+		`
+		<tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+		<td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
+		</td>
+		</tr>
+		`
+	$(".favoritesTab").append(viewFavorites)
+	}
 }
 
 function openWin(){
@@ -87,11 +85,11 @@ function getBreweries(latitude, longitude) {
     var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=1`;
     
     fetch(requestUrl)
-      .then(async function (response) {
-        var data = await response.json();
-        printMainContainer(data);
-        return;
-      })
+		.then(async function (response) {
+			var data = await response.json();
+			printMainContainer(data);
+			return;
+		})
   } 
      
 function printMainContainer(data){
@@ -104,35 +102,32 @@ function printMainContainer(data){
 function startFacts() {
     $(".funFacts").empty();
     fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        var htmlTemplate = `
-        <p>${data.text}<p>`
-        $(".funFacts").append(htmlTemplate);
-        uselessFacts();
-      })
+		.then(function (response) {
+			return response.json();
+		})
+		.then(function (data) {
+			var htmlTemplate = `
+			<p>${data.text}<p>`
+			$(".funFacts").append(htmlTemplate);
+			uselessFacts();
+		})
 }
 function uselessFacts(){
-    
-    setInterval(function(){
-        
-             var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
-             $(".funFacts").empty();
-             fetch(requestUrl)
-               .then(function (response) {
-                 return response.json();
-               })
-               .then(function (data) {
-                 var htmlTemplate = `
-                 <p>${data.text}<p>`
+    setInterval(function(){  
+          var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+          $(".funFacts").empty();
+          fetch(requestUrl)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (data) {
+              var htmlTemplate = `
+              <p>${data.text}<p>`
 
-                 $(".funFacts").append(htmlTemplate);
-               })
-         }
-       ,10000);
-    }
+              $(".funFacts").append(htmlTemplate);
+            })
+    }, 10000);
+}
 
 startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
