@@ -25,7 +25,7 @@ https://github.com/kimberlym4488/brewtrek
 
 ## Summary
 
-brewtrek is a webservice that utilizes asynchronous JavaScript with [OpenBreweryDB](https://www.openbrewerydb.org/) to provide users with the ability to search for breweries in any city. The webservice is utilizes the [bulma](https://bulma.io/) framework for layout and styling.
+brewtrek is a webservice that utilizes asynchronous JavaScript with [OpenBreweryDB](https://www.openbrewerydb.org/) to provide users with the ability to search for breweries in any city. The webservice is utilizes the [bulma](https://bulma.io/) framework for layout and styling. On the landing page, users may enter the name of a city. 
 
 ## Author Names
 
