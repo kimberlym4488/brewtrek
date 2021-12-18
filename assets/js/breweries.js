@@ -3,8 +3,16 @@
 var params = new URLSearchParams(document.location.search);
 var resultsEl = $("#query-results");
 var nextBtn = $("#next");
-var previousBtn = $("previous")
+var previousBtn = $("#previous")
 var pageNumber = params.get("p");
+if(!pageNumber){
+	pageNumber = "1";
+}
+if(pageNumber !== "1"){
+	previousBtn.removeAttr("disabled")
+}
+var latitude = params.get("lat");
+var longitude = params.get("lon");
 
 /**
  * Writes a list item to be appended to breweries.html
@@ -76,13 +84,12 @@ function getFavorites(){
 }
 
 function openWin(){
-  
-  console.log("You clicked the favorite!")
+	console.log("You clicked the favorite!")
 }
 
-function getBreweries(latitude, longitude) {
+function getBreweries(latitude, longitude, page) {
     // Insert the API url to get a list of weather data
-    var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=1`;
+    var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=${page}`;
     
     fetch(requestUrl)
 		.then(async function (response) {
@@ -94,6 +101,16 @@ function getBreweries(latitude, longitude) {
      
 function printMainContainer(data){
     //Add contents into daily cards.
+	if(data.length < 1){
+		resultsEl.append(
+`<div class="tile is parent">
+	<article class="tile is-child box">
+		<p>No results! We've ran out of breweries.</p>
+	</article>
+</div>`
+		)
+		nextBtn.attr("disabled", "true");
+	}
     for (var i = 0; i<data.length; i++) {
         resultsEl.append(writeResult(data[i]));
     }
@@ -112,6 +129,7 @@ function startFacts() {
 			uselessFacts();
 		})
 }
+
 function uselessFacts(){
     setInterval(function(){  
           var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
@@ -129,6 +147,17 @@ function uselessFacts(){
     }, 10000);
 }
 
+nextBtn.click(function(){
+	pageNumber++;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+})
+
+previousBtn.click(function(){
+	pageNumber--;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+});
+
 startFacts();
-getBreweries(params.get("lat"), params.get("lon"));
+getBreweries(latitude, longitude, pageNumber);
 getFavorites();
+
