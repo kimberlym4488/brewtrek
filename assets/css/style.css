@@ -5,7 +5,7 @@
     background-color:#F9C74F;
     background-color:#90BE6D;
     background-color:#43AA8B;
-    background-color: #2d3e50;
+    background-color:#2d3e50;
     background-color:white;
 }*/
 .main-background
@@ -33,6 +33,15 @@ header{
         height: auto;
         max-width: 40vw;
         max-height: 100vw;
+        
+    }
+
+    .navbar-item img:hover{
+        width: auto;
+        height: auto;
+        max-width: 45vw;
+        max-height: 110vw;
+        transition: 200ms 200ms;
     }
 
 .navbar-brand{
@@ -73,6 +82,7 @@ h1 {
 
 .button.is-primary:hover{
     background-color:#43AA8B;
+    transition: 200ms 200ms;
 }
 
 .backButton.button{
@@ -83,17 +93,11 @@ h1 {
 
 .backButton.button.button:hover{
     background-color:#43AA8B;
+    transition: 200ms 200ms;
 }
-
-
-.modal-content{
-    padding:2rem;
-}
-
-
 
 .favoritesTab{
-    padding:2rem;
+    padding:1rem;
     margin-top:2rem;
 }
 
@@ -102,7 +106,7 @@ h1 {
     background-color:white;
     color: #2d3e50;
     font-weight:bold;
-    padding:2rem;
+    padding:1rem;
     margin-top:2rem;
 }
 
@@ -110,12 +114,11 @@ h1 {
     background-color:#F94144;
     color:white;
     font-size:large;
+ 
 }
 .text-center {
     text-align: center;
 }
-
-
 
 .text-white {
     color: #ffffff;
@@ -172,15 +175,35 @@ a.firstChild{
    text-align: center;
 }
 
+.title:hover{
+    font-size: 110%;
+    color: rgb(87,117,144);
+    text-shadow: .5px .5px 1px grey;
+    transition:color 200ms 200ms;
+ }
+
 .subtitle{
-    font-size: medium;
+    font-size: small;
     text-align: center;
+    text-decoration: underline;
+    
+ }
+
+ .subtitle:hover{
+    
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
  }
 
  .button{
     font-size: small;
     text-align: center;
  }
+
+ .button.button.is-warning:hover{
+    background-color:#d1b25c;
+    transition:300ms 300ms;
+}
 
  #query-results{
      padding:1.5rem;
