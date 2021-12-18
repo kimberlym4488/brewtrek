@@ -63,23 +63,21 @@ function getFavorites(){
 
 	var favoritesList=
 	JSON.parse(localStorage.getItem("favorites"));
-	console.log(favoritesList)
+	console.log(favoritesList);
 	//if favoritesList.length===0 {} or !favoritesList.length
-		if (favoritesList===null){
+	if (favoritesList===null){
 		return;
-		}
-
-		for(var i=0; i<favoritesList.length;i++){
+	}
+	for(var i=0; i<favoritesList.length;i++){
 		console.log(favoritesList[i].id);
-
-	var viewFavorites=
-		`
-		<tr class = p-3 onclick="openWin(${favoritesList[i].id})">
-		<td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
-		</td>
-		</tr>
-		`
-	$(".favoritesTab").append(viewFavorites)
+		var viewFavorites=
+			`
+			<tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+			<td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
+			</td>
+			</tr>
+			`
+		$(".favoritesTab").append(viewFavorites)
 	}
 }
 
@@ -132,18 +130,18 @@ function startFacts() {
 
 function uselessFacts(){
     setInterval(function(){  
-          var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
-          $(".funFacts").empty();
-          fetch(requestUrl)
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              var htmlTemplate = `
-              <p>${data.text}<p>`
+		var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
+		$(".funFacts").empty();
+		fetch(requestUrl)
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				var htmlTemplate = `
+				<p>${data.text}<p>`;
 
-              $(".funFacts").append(htmlTemplate);
-            })
+				$(".funFacts").append(htmlTemplate);
+			})
     }, 10000);
 }
 
@@ -160,4 +158,3 @@ previousBtn.click(function(){
 startFacts();
 getBreweries(latitude, longitude, pageNumber);
 getFavorites();
-
