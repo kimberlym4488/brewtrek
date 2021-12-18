@@ -13,7 +13,6 @@ function displayTime() {
     <p style="font-weight:bolder">Pick your place.</p>
     <p style="font-weight:bolder">Have an epic ${today}.</p>`
     welcomeMessage.html(welcome);
-
 }
 
 function getLatLon(){
@@ -23,11 +22,19 @@ function getLatLon(){
       .then(async function (response) {
         const data = await response.json();
         console.log(data)
-        var latitude = data[0].lat;
-        var longitude = data[0].lon;
-        console.log(longitude);
-        console.log(latitude);
-        document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}`);
+
+        if (data.length == 0)
+        {
+          alert("Invalid city!")
+        }
+        else
+        {
+          var latitude = data[0].lat;
+          var longitude = data[0].lon;
+          console.log(longitude);
+          console.log(latitude);
+          document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}`);
+        }
         // getBreweries(latitude,longitude);
         return;
         //}
@@ -46,6 +53,51 @@ function buttonClickHandler(event){
         else {
             getLatLon(city.value);
         }
+}
+
+$(".favoritesButton").on ("click", function(event){
+  event.preventDefault();
+  $(".modal").addClass("is-active");
+  console.log($(".modal"));
+})
+
+$(".modal-close").on("click", function(event){
+  event.preventDefault();
+  $(".modal").removeClass("is-active");
+   console.log($(".modal"));
+})
+
+function getFavorites(){
+
+  var favoritesList=
+  JSON.parse(localStorage.getItem("favorites"));
+
+  //if favoritesList.length===0 {} or !favoritesList.length
+      if (favoritesList===null){
+      return;
+      }
+  
+      for(var i=0; i<favoritesList.length;i++){
+        console.log(favoritesList[i].id)
+
+  var viewFavorites=
+    `
+      <tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+        <td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
+        </td>
+      </tr>
+    `
+
+//Comes back with the id of the brewery. Change this into a variable so we can pass it through to brewery.js and take user to brewery.html. 
+
+  $(".favoritesTab").append(viewFavorites)
+    }
+  }
+
+function openWin(){
+  console.log("You clicked a name!")
+  console.log(favoritesList[i].id);
+
 }
 
 function startFacts() {
@@ -79,9 +131,10 @@ function uselessFacts(){
                  $(".funFacts").append(htmlTemplate);
                })
          }
-       ,4000);
+       ,8000);
     }
 
 startFacts();
+getFavorites();
 document.getElementById('btn').addEventListener("click", buttonClickHandler);
 displayTime();
