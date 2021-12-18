@@ -16,8 +16,7 @@ var longitude = params.get("lon");
 
 /**
  * Writes a list item to be appended to breweries.html
- * @param {string} name name of the brewery
- * @param {number} id openbrewerydb id of the brewery
+ * @param {Object} data A json object containing relevant information about a brewery, including name and address.
  * @returns a list item with a link to brewery.html
  */
 function writeResult(data){
@@ -31,19 +30,23 @@ function writeResult(data){
 </div>`
 }
 
+/**
+ * Adds a brewery to a list of favorites.
+ * @param {Event} event the event that triggered the call to this function.
+ */
 function setFavorite(event){
-		var favorites = JSON.parse(localStorage.getItem("favorites"));
+	var favorites = JSON.parse(localStorage.getItem("favorites"));
 	console.log(event.currentTarget);
-		var brewery = {
-			name: event.currentTarget.dataset.name,
-			id: event.currentTarget.dataset.id
-		}
-		if(favorites === null){
-			favorites = [brewery];
-		}else if(!favorites.some(item => item.name === brewery.name)){
-			favorites.push(brewery);
-		}
-		localStorage.setItem("favorites", JSON.stringify(favorites));
+	var brewery = {
+		name: event.currentTarget.dataset.name,
+		id: event.currentTarget.dataset.id
+	}
+	if(favorites === null){
+		favorites = [brewery];
+	}else if(!favorites.some(item => item.name === brewery.name)){
+		favorites.push(brewery);
+	}
+	localStorage.setItem("favorites", JSON.stringify(favorites));
 	window.location.reload();
 }
 
@@ -59,10 +62,12 @@ $(".modal-close").on("click", function(event){
 	console.log($(".modal"));
 })
 
+/**
+ * Retrieves and displays a list of favorited breweries.
+ * @returns if favorites list does not exist.
+ */
 function getFavorites(){
-
-	var favoritesList=
-	JSON.parse(localStorage.getItem("favorites"));
+	var favoritesList =	JSON.parse(localStorage.getItem("favorites"));
 	console.log(favoritesList);
 	//if favoritesList.length===0 {} or !favoritesList.length
 	if (favoritesList===null){
@@ -85,6 +90,12 @@ function openWin(){
 	console.log("You clicked the favorite!")
 }
 
+/**
+ * Retrieves a list of brewries from a location based on latitude and longitude
+ * @param {string} latitude the latitude of the location
+ * @param {string} longitude the longitude of the location
+ * @param {string} page the offset from the list of results to display
+ */
 function getBreweries(latitude, longitude, page) {
     // Insert the API url to get a list of weather data
     var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=${page}`;
@@ -95,8 +106,12 @@ function getBreweries(latitude, longitude, page) {
 			printMainContainer(data);
 			return;
 		})
-  } 
+}
      
+/**
+ * Displays the current list of breweries to the page.
+ * @param {Array} data an array of objects representing the list of breweries to be displayed.
+ */
 function printMainContainer(data){
     //Add contents into daily cards.
 	if(data.length < 1){
@@ -114,6 +129,9 @@ function printMainContainer(data){
     }
 }
 
+/**
+ * Retrieves and displays a random fact on the page.
+ */
 function startFacts() {
     $(".funFacts").empty();
     fetch('https://uselessfacts.jsph.pl/random.json?language=en')
@@ -128,6 +146,9 @@ function startFacts() {
 		})
 }
 
+/**
+ * Periodically updates the displayed random fact.
+ */
 function uselessFacts(){
     setInterval(function(){  
 		var requestUrl = 'https://uselessfacts.jsph.pl/random.json?language=en'
@@ -139,17 +160,22 @@ function uselessFacts(){
 			.then(function (data) {
 				var htmlTemplate = `
 				<p>${data.text}<p>`;
-
 				$(".funFacts").append(htmlTemplate);
 			})
     }, 10000);
 }
 
+/**
+ * Navigates to the next set of breweries.
+ */
 nextBtn.click(function(){
 	pageNumber++;
 	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
 })
 
+/**
+ * Navigates to the previous set of displayed breweries.
+ */
 previousBtn.click(function(){
 	pageNumber--;
 	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
