@@ -5,7 +5,7 @@
     background-color:#F9C74F;
     background-color:#90BE6D;
     background-color:#43AA8B;
-    background-color: #2d3e50;
+    background-color:#2d3e50;
     background-color:white;
 }*/
 .main-background
@@ -96,15 +96,8 @@ h1 {
     transition: 200ms 200ms;
 }
 
-
-.modal-content{
-    padding:2rem;
-}
-
-
-
 .favoritesTab{
-    padding:2rem;
+    padding:1rem;
     margin-top:2rem;
 }
 
@@ -113,7 +106,7 @@ h1 {
     background-color:white;
     color: #2d3e50;
     font-weight:bold;
-    padding:2rem;
+    padding:1rem;
     margin-top:2rem;
 }
 
@@ -121,12 +114,11 @@ h1 {
     background-color:#F94144;
     color:white;
     font-size:large;
+ 
 }
 .text-center {
     text-align: center;
 }
-
-
 
 .text-white {
     color: #ffffff;
