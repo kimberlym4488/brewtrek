@@ -102,24 +102,22 @@ $(".modal-close").on("click", function(event){
  */
 function getFavorites() {
 
-  var favoritesList =
-    JSON.parse(localStorage.getItem("favorites"));
-  console.log(favoritesList)
-  //if favoritesList.length===0 {} or !favoritesList.length
-  if (favoritesList === null) {
-    return;
-  }
-
-  for (var i = 0; i < favoritesList.length; i++) {
-    console.log(favoritesList[i].name);
-    var viewFavorites = `
-    <div class="tile is parent has-text-dark">
-    <article class="tile is-child box button" style="font-weight:bolder;">
-      <a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
-    </article>
-    </div>`
-    $(".tableRow").append(viewFavorites);
-  }
+	var favoritesList = JSON.parse(localStorage.getItem("favorites"));
+	console.log(favoritesList)
+	//if favoritesList.length===0 {} or !favoritesList.length
+	if (favoritesList === null) {
+		return;
+	}
+	for (var i = 0; i < favoritesList.length; i++) {
+		console.log(favoritesList[i].name);
+		var viewFavorites = `
+<div class="tile is parent has-text-dark">
+	<article class="tile is-child box button" style="font-weight:bolder;">
+		<a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
+	</article>
+</div>`
+		$(".tableRow").append(viewFavorites);
+	}
 }
 
 function startFacts() {

@@ -5,7 +5,7 @@ var resultsEl = $("#query-results");
 var nextBtn = $("#next");
 var previousBtn = $("#previous")
 var pageNumber = params.get("p");
-if(!pageNumber){
+if(!pageNumber || pageNumber ){
 	pageNumber = "1";
 }
 if(pageNumber !== "1"){
@@ -67,26 +67,23 @@ $(".modal-close").on("click", function(event){
  * @returns if favorites list does not exist.
  */
 function getFavorites(){
-var favoritesList=
-JSON.parse(localStorage.getItem("favorites"));
-console.log(favoritesList)
-//if favoritesList.length===0 {} or !favoritesList.length
-    if (favoritesList===null){
-    return;
-    }
-
-    for(var i=0; i<favoritesList.length;i++){
-    console.log(favoritesList[i].id);
-
-
-var viewFavorites=`
+	var favoritesList=
+	JSON.parse(localStorage.getItem("favorites"));
+	console.log(favoritesList)
+	//if favoritesList.length===0 {} or !favoritesList.length
+	if (favoritesList===null){
+		return;
+	}
+	for(var i=0; i<favoritesList.length;i++){
+		console.log(favoritesList[i].id);
+		var viewFavorites=`
 <div class="tile is parent has-text-dark">
-<article class="tile is-child box button" style="font-weight:bolder;">
-  <a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
-</article>
+	<article class="tile is-child box button" style="font-weight:bolder;">
+		<a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
+	</article>
 </div>`
-$(".tableRow").append(viewFavorites);
-  }
+		$(".tableRow").append(viewFavorites);
+  	}
 }
 
 /**
