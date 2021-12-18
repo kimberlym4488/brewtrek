@@ -161,6 +161,27 @@ h1 {
 a.firstChild{
     color:#F94144;
     font-size:1.5rem;
+    
+}
+
+#kim:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#cameron:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#eileen:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#armin:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
 }
 
 .tile{
@@ -216,4 +237,6 @@ a.firstChild{
  #query-results{
      padding:1.5rem;
  }
+
+ 
 
