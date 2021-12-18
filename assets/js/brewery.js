@@ -9,6 +9,8 @@ var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
 var favoriteBtn = $("#favorite");
+var subtitleEl = $(".subtitle")
+var titleEl = $(".title")
 
 function getBrewery(){
     fetch(query)

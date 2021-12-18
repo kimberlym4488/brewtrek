@@ -33,6 +33,15 @@ header{
         height: auto;
         max-width: 40vw;
         max-height: 100vw;
+        
+    }
+
+    .navbar-item img:hover{
+        width: auto;
+        height: auto;
+        max-width: 45vw;
+        max-height: 110vw;
+        transition: 200ms 200ms;
     }
 
 .navbar-brand{
@@ -73,6 +82,7 @@ h1 {
 
 .button.is-primary:hover{
     background-color:#43AA8B;
+    transition: 200ms 200ms;
 }
 
 .backButton.button{
@@ -83,6 +93,7 @@ h1 {
 
 .backButton.button.button:hover{
     background-color:#43AA8B;
+    transition: 200ms 200ms;
 }
 
 
@@ -158,10 +169,7 @@ a.firstChild{
     flex-direction: row;
     justify-content: center;
     margin: 10px 10px 10px 10px;
-<<<<<<< HEAD
-=======
 }
->>>>>>> cbe96af33a9a2d7f7d3447db6a32bbe551c7c209
 
 .tester{
     background-color:rgb(87,117,144,.4);
@@ -175,15 +183,35 @@ a.firstChild{
    text-align: center;
 }
 
+.title:hover{
+    font-size: 110%;
+    color: rgb(87,117,144);
+    text-shadow: .5px .5px 1px grey;
+    transition:color 200ms 200ms;
+ }
+
 .subtitle{
-    font-size: medium;
+    font-size: small;
     text-align: center;
+    text-decoration: underline;
+    
+ }
+
+ .subtitle:hover{
+    
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
  }
 
  .button{
     font-size: small;
     text-align: center;
  }
+
+ .button.button.is-warning:hover{
+    background-color:#d1b25c;
+    transition:300ms 300ms;
+}
 
  #query-results{
      padding:1.5rem;
