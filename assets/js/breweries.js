@@ -155,3 +155,4 @@ previousBtn.click(function(){
 startFacts();
 getBreweries(latitude, longitude, pageNumber);
 getFavorites();
+
