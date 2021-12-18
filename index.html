@@ -9,13 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head> 
-  <body >
-    
-    <header class = "container has-text-centered has-ratio" >
-      <a href = "https://kimberlym4488.github.io/brewtrek/">
-        <img src="assets/Images/logo.PNG" alt = "BrewTrek" class="is-inline-block image is-6by2">
-      </a>
-    </header>
+
+<body>
+      
+
+  <header>
+    <nav class="navbar is-justify-content-space-between is-spaced has-shadow" role="navigation" aria-label="main navigation" >
+        <div class="navbar-brand navbar-start is-fullwidth"  >
+          <a class="navbar-item is-fullwidth" id="mainLogo" width="300px" href="https://kimberlym4488.github.io/brewtrek/">
+            <img src="assets/Images/logo.PNG">
+          </a>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+                  <button class="button favoritesButton  is-primary is-medium is-centered has-text-centered level-item " >View Favorites</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
 
     <main class="main-background container has-text-centered " style="padding-left:4rem;padding-right:4rem;">
@@ -38,6 +50,30 @@
         <p class="title">Take a fun-fact to go!</p>
         <p class="funFacts">Fun Fact!</p>
       </article>
+    </div>
+
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <nav class="is-inline-block is-centered table-container table is-bordered is-striped is-hoverable">
+          <table class="table">
+            <thead>
+              <tr>
+                <th title="Name">Name</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <thtitle="Name">Click a name to see more details.</th>
+              </tr>
+            </tfoot>
+              <tbody class="favoritesTab">
+              <!--JS Favorites List-->
+              </tbody>
+            </table>
+          </nav>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <footer class="tester">

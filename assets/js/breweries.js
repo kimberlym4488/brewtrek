@@ -15,31 +15,22 @@ var resultsEl = $("#query-results");
 function writeResult(data){
     // TODO: Add brewery information in the body of the list item.
 
+console.log(data.name);
+console.log(data.id);
 
-// $("#").append(div)
-// column1Ele.append(rowEle);
-
-// let column2Ele = $("<div class='title-parent'>");
-// let textEle = $("<article class='title is-child box'>");
-// let titleEle = $("<p class='title'>")
-// let subtitleEle = $("<p class='Subtitle'>");
-// titleEle.append(titleEle);
-// subtitleEle.append(SubtitleEle);
-
-// column2Ele.append(rowEle);
 return`
 <div class="tile is parent">
 	<article class="tile is-child box">
 		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
 		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
-		<button class="button is-warning" onclick=setFavorite(event) data-name=${data.name} data-id=${data.id}>Add to Favorites</button>
+		<button class="button is-warning" onclick=setFavorite(event) data-name="${data.name}" data-id="${data.id}">Add to Favorites</button>
 	</article>
 </div>`
 }
 
 function setFavorite(event){
 	var favorites = JSON.parse(localStorage.getItem("favorites"));
-
+  console.log(event.currentTarget);
 	var brewery = {
 		name: event.currentTarget.dataset.name,
 		id: event.currentTarget.dataset.id
@@ -50,12 +41,47 @@ function setFavorite(event){
 		favorites.push(brewery);
 	}
 	localStorage.setItem("favorites", JSON.stringify(favorites));
+  window.location.reload();
+
+}
+
+$(".favoritesButton").on ("click", function(event){
+  event.preventDefault();
+  $(".modal").addClass("is-active");
+  console.log($(".modal"));
+})
+
+$(".modal-close").on("click", function(event){
+  event.preventDefault();
+  $(".modal").removeClass("is-active");
+   console.log($(".modal"));
+})
+
+function getFavorites(){
+
+var favoritesList=
+JSON.parse(localStorage.getItem("favorites"));
+console.log(favoritesList)
+//if favoritesList.length===0 {} or !favoritesList.length
+    if (favoritesList===null){
+    return;
+    }
+
+    for(var i=0; i<favoritesList.length;i++){
+    console.log(favoritesList[i].name);
+var viewFavorites=
+  `
+    <tr>
+      <td title="">${favoritesList[i].name} 
+      </td>
+    </tr>
+  `
+$(".favoritesTab").append(viewFavorites)
+  }
 }
 
 function getBreweries(latitude, longitude) {
     // Insert the API url to get a list of weather data
-   console.log(`This is my ${longitude} latitude, this is my ${latitude} longitude`)
-
     var requestUrl = `https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&page=1`;
     
     fetch(requestUrl)
@@ -64,15 +90,11 @@ function getBreweries(latitude, longitude) {
         printMainContainer(data);
         return;
       })
-
   } 
      
 function printMainContainer(data){
     //Add contents into daily cards.
     for (var i = 0; i<data.length; i++) {
-        console.log(data);
-        console.log(data[i].name)
-        console.log(data[i].website_url)
         resultsEl.append(writeResult(data[i]));
     }
 }
@@ -107,8 +129,9 @@ function uselessFacts(){
                  $(".funFacts").append(htmlTemplate);
                })
          }
-       ,4000);
+       ,10000);
     }
 
 startFacts();
 getBreweries(params.get("lat"), params.get("lon"));
+getFavorites();

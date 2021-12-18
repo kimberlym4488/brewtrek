@@ -56,6 +56,41 @@ function buttonClickHandler(event){
         }
 }
 
+$(".favoritesButton").on ("click", function(event){
+  event.preventDefault();
+  $(".modal").addClass("is-active");
+  console.log($(".modal"));
+})
+
+$(".modal-close").on("click", function(event){
+  event.preventDefault();
+  $(".modal").removeClass("is-active");
+   console.log($(".modal"));
+})
+
+function getFavorites(){
+
+  var favoritesList=
+  JSON.parse(localStorage.getItem("favorites"));
+  console.log(favoritesList)
+  //if favoritesList.length===0 {} or !favoritesList.length
+      if (favoritesList===null){
+      return;
+      }
+  
+      for(var i=0; i<favoritesList.length;i++){
+      console.log(favoritesList[i].name);
+  var viewFavorites=
+    `
+      <tr>
+        <td title="">${favoritesList[i].name} 
+        </td>
+      </tr>
+    `
+  $(".favoritesTab").append(viewFavorites)
+    }
+  }
+
 function startFacts() {
 
     $(".funFacts").empty();
@@ -87,9 +122,10 @@ function uselessFacts(){
                  $(".funFacts").append(htmlTemplate);
                })
          }
-       ,4000);
+       ,8000);
     }
 
 startFacts();
+getFavorites();
 document.getElementById('btn').addEventListener("click", buttonClickHandler);
 displayTime();

@@ -31,12 +31,7 @@ function getBrewery(){
             phoneEl.attr("href", `tel:${data.phone}`);
             urlEl.text(data.website_url);
             urlEl.attr("href", data.website_url);
-            
 		});
-}
-
-function delimitPhonenumber(number){
-
 }
 
 function setFavorite(){
@@ -51,6 +46,42 @@ function setFavorite(){
 		favorites.push(brewery)
 	}
 	localStorage.setItem("favorites", JSON.stringify(favorites));
+  window.location.reload();
+}
+
+$(".favoritesButton").on ("click", function(event){
+  event.preventDefault();
+  $(".modal").addClass("is-active");
+  console.log($(".modal"));
+})
+
+$(".modal-close").on("click", function(event){
+  event.preventDefault();
+  $(".modal").removeClass("is-active");
+   console.log($(".modal"));
+})
+
+function getFavorites(){
+
+var favoritesList=
+JSON.parse(localStorage.getItem("favorites"));
+console.log(favoritesList)
+//if favoritesList.length===0 {} or !favoritesList.length
+    if (favoritesList===null){
+    return;
+    }
+
+    for(var i=0; i<favoritesList.length;i++){
+    console.log(favoritesList[i].name);
+var viewFavorites=
+  `
+    <tr>
+      <td title="">${favoritesList[i].name} 
+      </td>
+    </tr>
+  `
+$(".favoritesTab").append(viewFavorites)
+  }
 }
 
 function startFacts() {
@@ -85,9 +116,10 @@ function uselessFacts(){
                  $(".funFacts").append(htmlTemplate);
                })
          }
-       ,4000);
+       ,10000);
     }
 
 startFacts();
 getBrewery();
+getFavorites();
 favoriteBtn.click(setFavorite);
