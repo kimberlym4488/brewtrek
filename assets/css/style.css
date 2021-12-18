@@ -17,6 +17,7 @@
 
 body{
     height:100vh;
+    margin: 0;
 }
 .header1 {
     background-color: #2d3e50;
@@ -24,16 +25,21 @@ body{
 
 header{ 
     background-color:rgb(255,255,255, .7); 
+    min-width:100%;
 
 }
-header img{ 
-   max-width:50vw;  
-}
+.navbar-item img{
+        width: auto;
+        height: auto;
+        max-width: 40vw;
+        max-height: 100vw;
+    }
 
-body {
-    margin: 0;
+.navbar-brand{
+    justify-content:space-between;
+    align-items:center;
+    height:15vh;
 }
-
 
 h1 {
     margin: 0 0 0.5rem;
@@ -61,7 +67,6 @@ h1 {
     font-size:1.75rem;
 
 }
-
 .button.is-primary{
     background-color:#F94144;
 }
@@ -70,9 +75,47 @@ h1 {
     background-color:#43AA8B;
 }
 
+.backButton.button{
+    font-size:medium;
+    background-color:#F94144;
+    color:white;
+}
+
+.backButton.button.button:hover{
+    background-color:#43AA8B;
+}
+
+
+.modal-content{
+    padding:2rem;
+}
+
+
+
+.favoritesTab{
+    padding:2rem;
+    margin-top:2rem;
+}
+
+
+.tableData{
+    background-color:white;
+    color: #2d3e50;
+    font-weight:bold;
+    padding:2rem;
+    margin-top:2rem;
+}
+
+.thtitle{
+    background-color:#F94144;
+    color:white;
+    font-size:large;
+}
 .text-center {
     text-align: center;
 }
+
+
 
 .text-white {
     color: #ffffff;
@@ -80,8 +123,8 @@ h1 {
 
 .uselessFact{
     border-top:rgb(87,117,144) .5 1rem;
-   
 }
+
 .tile.is-parent{
     padding:0;
     border-top:rgb(87,117,144) .5 1rem;
@@ -89,11 +132,8 @@ h1 {
 }
 
 #Contributors {
-
     font-size: 1.2rem;
 }
-
-
 
 .footerStyle{
     padding-bottom:-3rem;
@@ -112,6 +152,13 @@ a.firstChild{
     font-size:1.5rem;
 }
 
+.tile{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+}
 
 .tester{
     background-color:rgb(87,117,144,.4);
@@ -120,5 +167,22 @@ a.firstChild{
     padding:1rem;
 }
 
+.title{
+   font-size: larger;
+   text-align: center;
+}
 
+.subtitle{
+    font-size: medium;
+    text-align: center;
+ }
+
+ .button{
+    font-size: small;
+    text-align: center;
+ }
+
+ #query-results{
+     padding:1.5rem;
+ }
 
