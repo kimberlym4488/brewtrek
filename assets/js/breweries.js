@@ -15,9 +15,6 @@ var resultsEl = $("#query-results");
 function writeResult(data){
     // TODO: Add brewery information in the body of the list item.
 
-console.log(data.name);
-console.log(data.id);
-
 return`
 <div class="tile is parent">
 	<article class="tile is-child box">
@@ -42,7 +39,6 @@ function setFavorite(event){
 	}
 	localStorage.setItem("favorites", JSON.stringify(favorites));
   window.location.reload();
-
 }
 
 $(".favoritesButton").on ("click", function(event){
@@ -68,16 +64,22 @@ console.log(favoritesList)
     }
 
     for(var i=0; i<favoritesList.length;i++){
-    console.log(favoritesList[i].name);
+    console.log(favoritesList[i].id);
+
 var viewFavorites=
-  `
-    <tr>
-      <td title="">${favoritesList[i].name} 
+    `
+    <tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+      <td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
       </td>
     </tr>
-  `
+    `
 $(".favoritesTab").append(viewFavorites)
   }
+}
+
+function openWin(){
+  
+  console.log("You clicked the favorite!")
 }
 
 function getBreweries(latitude, longitude) {

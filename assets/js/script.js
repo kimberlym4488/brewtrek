@@ -13,7 +13,6 @@ function displayTime() {
     <p style="font-weight:bolder">Pick your place.</p>
     <p style="font-weight:bolder">Have an epic ${today}.</p>`
     welcomeMessage.html(welcome);
-
 }
 
 function getLatLon(){
@@ -72,24 +71,34 @@ function getFavorites(){
 
   var favoritesList=
   JSON.parse(localStorage.getItem("favorites"));
-  console.log(favoritesList)
+
   //if favoritesList.length===0 {} or !favoritesList.length
       if (favoritesList===null){
       return;
       }
   
       for(var i=0; i<favoritesList.length;i++){
-      console.log(favoritesList[i].name);
+        console.log(favoritesList[i].id)
+
   var viewFavorites=
     `
-      <tr>
-        <td title="">${favoritesList[i].name} 
+      <tr class = p-3 onclick="openWin(${favoritesList[i].id})">
+        <td class="p-3 tableData" id="tableData">${favoritesList[i].name} 
         </td>
       </tr>
     `
+
+//Comes back with the id of the brewery. Change this into a variable so we can pass it through to brewery.js and take user to brewery.html. 
+
   $(".favoritesTab").append(viewFavorites)
     }
   }
+
+function openWin(){
+  console.log("You clicked a name!")
+  console.log(favoritesList[i].id);
+
+}
 
 function startFacts() {
 
