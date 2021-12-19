@@ -8,7 +8,7 @@ var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
-var favoriteBtn = $("#favorite");
+var favoriteBtn = $("#favourite");
 var subtitleEl = $(".subtitle")
 var titleEl = $(".title")
 
