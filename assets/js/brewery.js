@@ -8,13 +8,17 @@ var googleLink = $("#lmgtfy");
 var cityStateZipEl = $("#cityStateZip");
 var phoneEl = $("#phone");
 var urlEl = $("#url");
-var favoriteBtn = $("#favorite");
+var favoriteBtn = $("#favourite");
 var subtitleEl = $(".subtitle")
 var titleEl = $(".title")
+
 
 /**
  * Retrieves and displays information for the selected brewery.
  */
+
+//-----BREWERY FETCH FUNCTION------------------------------------------------------------------// 
+
 function getBrewery(){
     fetch(query)
         .then(function(result){
@@ -38,12 +42,17 @@ function getBrewery(){
             urlEl.attr("href", data.website_url);
 		});
 }
+//-------------------------------------------------------------------------------------------//
+
 
 /**
  * Splits up a phone number such that it is more readable.
  * @param {string or number} number a string (or number) of at least 10 characters representing a phone number.
  * @returns {string} in the format (###) ###-#### or +## (###) ###-#### depending on whether or not a country code is available.
  */
+
+//-----BREWERY PHONE NUMBER FUNCTION---------------------------------------------------------// 
+
 function delineatePhoneNumber(number){
 	number = "" + number;
 	number = number.split("")
@@ -59,10 +68,15 @@ function delineatePhoneNumber(number){
 	rootNumber.splice(0, 0, "(");
 	return (countryCode + " " + rootNumber.join("")).trim();
 }
+//------------------------------------------------------------------------------------------//
+
 
 /**
  * Adds the current brewery to a list of favorite breweries.
  */
+
+//-----FAVORITE BUTTON, SETTING IN LOCAL STORAGE--------------------------------------------// 
+
 function setFavorite(){
 	var favorites = JSON.parse(localStorage.getItem("favorites"));
 	var brewery = {
@@ -95,11 +109,16 @@ $(".modal-close").on("click", function(event){
   $(".modal").removeClass("is-active");
   console.log($(".modal"));
 })
+//------------------------------------------------------------------------------------------//
+
 
 /**
  * Retrieve the current list of favorites.
  * @returns when the list of favorites is empty.
  */
+
+//-----FAVORITE BUTTON, PULL FROM LOCAL STORAGE---------------------------------------------// 
+
 function getFavorites() {
 
 	var favoritesList = JSON.parse(localStorage.getItem("favorites"));
@@ -119,7 +138,9 @@ function getFavorites() {
 		$(".tableRow").append(viewFavorites);
 	}
 }
+//------------------------------------------------------------------------------------------//
 
+//-----USELESS FACTS FETCH FUNCTION---------------------------------------------------------// 
 function startFacts() {
   $(".funFacts").empty();
   fetch('https://uselessfacts.jsph.pl/random.json?language=en')
@@ -134,7 +155,9 @@ function startFacts() {
       uselessFacts();
     })
 }
+//------------------------------------------------------------------------------------------//
 
+//-----USELESS FACTS DATA & DISPLAY FUNCTION------------------------------------------------// 
 function uselessFacts() {
 
   setInterval(function () {
@@ -154,6 +177,7 @@ function uselessFacts() {
   }
     , 10000);
 }
+//------------------------------------------------------------------------------------------//
 
 getBrewery();
 favoriteBtn.click(setFavorite);
