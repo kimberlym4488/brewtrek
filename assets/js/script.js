@@ -76,6 +76,20 @@ function getFavorites() {
 
   var favoritesList =
     JSON.parse(localStorage.getItem("favorites"));
+    favoritesList.sort((a, b) => {
+      if (
+        a.id < b.id) {
+        return -1;
+      }
+      if (
+        a.id > b.id) {
+        return 1;
+      }
+      if (
+        a.id === b.id) {
+        return 0;
+      }
+    });
 
   //if favoritesList.length===0 {} or !favoritesList.length
   if (favoritesList === null) {
