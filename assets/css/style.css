@@ -19,15 +19,15 @@ header{
     min-width:100%;
 
 }
+
 .navbar-item img{
         width: auto;
         height: auto;
         max-width: 40vw;
         max-height: 100vw;
-        
     }
 
-    .navbar-item img:hover{
+.navbar-item img:hover{
         width: auto;
         height: auto;
         max-width: 45vw;
@@ -36,9 +36,10 @@ header{
     }
 
 .navbar-brand{
-    justify-content:space-between;
+    flex-direction:column;
     align-items:center;
-    height:15vh;
+    justify-content:center;
+    height:10vh;
 }
 
 h1 {
@@ -92,6 +93,16 @@ h1 {
     background-color:#F94144;
 }
 .clearFavorites.button:hover{
+    background-color:#43AA8B;
+    transition: 200ms 200ms;
+}
+
+.favoritesButton.button{
+    font-size:medium;
+    background-color:rgb(87,117,144,.7);
+    margin-bottom:1rem;
+}
+.favoritesButton.button:hover{
     background-color:#43AA8B;
     transition: 200ms 200ms;
 }
@@ -185,7 +196,7 @@ a.firstChild{
     margin: 10px 10px 10px 10px;
 }
 
-.tester{
+.footerContent{
     background-color:rgb(87,117,144,.4);
     border-radius:4px;
     border:rgb(87,117,144) .5 5px;
