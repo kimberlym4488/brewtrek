@@ -143,7 +143,21 @@ function printMainContainer(data){
 }
 //----------------------------------------------------------------------------------//
 
+/**
+ * Navigates to the next set of breweries.
+ */
+ nextBtn.click(function(){
+	pageNumber++;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+})
 
+/**
+ * Navigates to the previous set of displayed breweries.
+ */
+previousBtn.click(function(){
+	pageNumber--;
+	document.location.replace(`./breweries.html?lat=${latitude}&lon=${longitude}&p=${pageNumber}`);
+})
 /**
  * Retrieves and displays a random fact on the page.
  */
