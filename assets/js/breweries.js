@@ -26,7 +26,7 @@ function writeResult(data){
 <div class="tile is parent">
 	<article class="tile is-child box">
 		<a href="./brewery.html?q=${data.id}"><p class="title">${data.name}</p></a>
-		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle">${data.street}</p></a>
+		<a href="https://www.google.com/maps/place/${data.street}+${data.city}+${data.state}+${data.postal_code}"><p class="subtitle p-3">${data.street}</p></a>
 		<button class="button is-warning" onclick=setFavorite(event) data-name="${data.name}" data-id="${data.id}">Add to Favorites</button>
 	</article>
 </div>`

@@ -117,7 +117,7 @@ a.firstChild{
 .navbar-item img{
         width: auto;
         height: auto;
-        max-width: 40vw;
+        max-width: 60vw;
         max-height: 100vw;
     }
 
@@ -133,7 +133,7 @@ a.firstChild{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    height:10vh;
+    height:15vw;
 }
 
 .button.is-primary{
@@ -300,6 +300,11 @@ a.firstChild{
  .button.button.is-warning:hover{
     background-color:#d1b25c;
     transition:300ms 300ms;
+}
+
+#url{
+    word-wrap:break-word;
+    height: auto;
 }
 
 /*---------------------------------------------------------------------------*/
