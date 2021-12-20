@@ -1,4 +1,108 @@
 
+
+/* ----------------------------HOME PAGE DATA------------------------------- */
+#kim:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#cameron:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#eileen:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#armin:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+/*---------------------------------------------------------------------------*/
+
+/* ----------------------------INDEX.HTML ID DATA--------------------------- */
+#welcomeMessage{
+    background-color:#43AA8B;
+    color:white;
+    font-size:1.5rem;
+    text-align:center;
+}
+#welcomeMessage p{
+    background-color:#43AA8B;
+    color:white;
+    font-size:1.25rem;
+    line-height:2rem;
+    text-align:center;
+}
+
+#invalidEntry{
+    line-height:2rem;
+    color: #F94144;
+    margin-top:-1rem;
+    margin-bottom:1rem;
+    font-size:1.75rem;
+}
+
+#Contributors {
+    font-size: 1.2rem;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/* ----------------------------BREWERIES.HTML ID DATA----------------------- */
+ #query-results{
+     padding:1.5rem;
+ }
+
+ /*---------------------------------------------------------------------------*/
+
+ /* ----------------------------BREWERY.HTML ID DATA------------------------- */
+ #address:hover{
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
+}
+
+#cityStateZip:hover{
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
+}
+
+#phone:hover{
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
+}
+
+#url:hover{
+    color: #43AA8Bed;
+    transition:color 200ms 200ms;
+}
+/*---------------------------------------------------------------------------*/
+
+/* ----------------------------HTML GENERAL ID DATA------------------------- */
+body{
+    height:100vh;
+    margin: 0;
+}
+
+header{ 
+    background-color:rgb(255,255,255, .7); 
+    min-width:100%;
+}
+
+h1 {
+    margin: 0 0 0.5rem;
+    line-height: 1.5rem;
+}
+
+a.firstChild{
+    color:#F94144;
+    font-size:1.5rem;   
+}
+/*---------------------------------------------------------------------------*/
+
+/* ----------------------------HTML CLASS DATA------------------------------ */
 .main-background
 {
     background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("../Images/Mainbackground.jpeg");
@@ -6,19 +110,10 @@
     background-size:cover;
 }
 
-body{
-    height:100vh;
-    margin: 0;
-}
 .header1 {
     background-color: #2d3e50;
 }
 
-header{ 
-    background-color:rgb(255,255,255, .7); 
-    min-width:100%;
-
-}
 .navbar-item img{
         width: auto;
         height: auto;
@@ -41,32 +136,6 @@ header{
     height:15vh;
 }
 
-h1 {
-    margin: 0 0 0.5rem;
-    line-height: 1.5rem;
-}
-
-#welcomeMessage{
-    background-color:#43AA8B;
-    color:white;
-    font-size:1.5rem;
-    text-align:center;
-}
-#welcomeMessage p{
-    background-color:#43AA8B;
-    color:white;
-    font-size:1.25rem;
-    line-height:2rem;
-    text-align:center;
-}
-#invalidEntry{
-    line-height:2rem;
-    color: #F94144;
-    margin-top:-1rem;
-    margin-bottom:1rem;
-    font-size:1.75rem;
-
-}
 .button.is-primary{
     background-color:#F94144;
 }
@@ -87,12 +156,9 @@ h1 {
     transition: 200ms 200ms;
 }
 
-
 .modal-content{
     padding:2rem;
 }
-
-
 
 .favoritesTab{
     padding:2rem;
@@ -117,8 +183,6 @@ h1 {
     text-align: center;
 }
 
-
-
 .text-white {
     color: #ffffff;
 }
@@ -133,13 +197,10 @@ h1 {
     border-radius:4px;
 }
 
-#Contributors {
-    font-size: 1.2rem;
-}
-
 .footerStyle{
     padding-bottom:-3rem;
 }
+
 .footerStyle > a{
     font-weight:bolder;
     display: inline-block;
@@ -147,32 +208,6 @@ h1 {
     display:flex;
     display:column;
     justify-content:center;
-}
-
-a.firstChild{
-    color:#F94144;
-    font-size:1.5rem;
-    
-}
-
-#kim:hover{
-    text-decoration:underline;
-    transition:color 200ms 200ms;
-}
-
-#cameron:hover{
-    text-decoration:underline;
-    transition:color 200ms 200ms;
-}
-
-#eileen:hover{
-    text-decoration:underline;
-    transition:color 200ms 200ms;
-}
-
-#armin:hover{
-    text-decoration:underline;
-    transition:color 200ms 200ms;
 }
 
 .tile{
@@ -225,26 +260,11 @@ a.firstChild{
     transition:300ms 300ms;
 }
 
- #query-results{
-     padding:1.5rem;
- }
+/*---------------------------------------------------------------------------*/
 
- #address:hover{
-    color: #43AA8Bed;
-    transition:color 200ms 200ms;
-}
 
-#cityStateZip:hover{
-    color: #43AA8Bed;
-    transition:color 200ms 200ms;
-}
 
-#phone:hover{
-    color: #43AA8Bed;
-    transition:color 200ms 200ms;
-}
 
-#url:hover{
-    color: #43AA8Bed;
-    transition:color 200ms 200ms;
-}
+
+
+
