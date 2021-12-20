@@ -87,18 +87,23 @@ h1 {
     transition: 200ms 200ms;
 }
 
+.clearFavorites.button{
+    font-size:medium;
+    background-color:#F94144;
+}
+.clearFavorites.button:hover{
+    background-color:#43AA8B;
+    transition: 200ms 200ms;
+}
 
 .modal-content{
     padding:2rem;
 }
 
-
-
 .favoritesTab{
     padding:2rem;
     margin-top:2rem;
 }
-
 
 .tableData{
     background-color:white;
@@ -116,8 +121,6 @@ h1 {
 .text-center {
     text-align: center;
 }
-
-
 
 .text-white {
     color: #ffffff;
@@ -152,7 +155,6 @@ h1 {
 a.firstChild{
     color:#F94144;
     font-size:1.5rem;
-    
 }
 
 #kim:hover{
@@ -206,11 +208,9 @@ a.firstChild{
     font-size: small;
     text-align: center;
     text-decoration: underline;
-    
  }
 
  .subtitle:hover{
-    
     color: #43AA8Bed;
     transition:color 200ms 200ms;
  }

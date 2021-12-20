@@ -52,17 +52,24 @@ function buttonClickHandler(event) {
     getLatLon(city.value);
   }
 }
-
+//Displays Modal when View Favorites is clicked
 $(".favoritesButton").on("click", function (event) {
   event.preventDefault();
   $(".modal").addClass("is-active");
   console.log($(".modal"));
 })
-
+//Stops modal display when the close button on the modal is clicked.
 $(".modal-close").on("click", function (event) {
   event.preventDefault();
   $(".modal").removeClass("is-active");
   console.log($(".modal"));
+})
+
+//Clears favorites when the clearFavorites button is clicked.
+$(".clearFavorites").on("click", function (event) {
+  event.preventDefault();
+  window.localStorage.clear();
+  $(".tableRow").empty();
 })
 
 function getFavorites() {
@@ -72,6 +79,8 @@ function getFavorites() {
 
   //if favoritesList.length===0 {} or !favoritesList.length
   if (favoritesList === null) {
+    $(".tableRow").text("You haven't added any favorites yet")
+    document.querySelector(".clearFavorites").disabled = true;
     return;
   }
 
@@ -85,6 +94,7 @@ function getFavorites() {
         </article>
         </div>`
     $(".tableRow").append(viewFavorites);
+
   }
 }
 
