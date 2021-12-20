@@ -12,7 +12,13 @@ var favoriteBtn = $("#favourite");
 var subtitleEl = $(".subtitle")
 var titleEl = $(".title")
 
+
+/**
+ * Retrieves and displays information for the selected brewery.
+ */
+
 //-----BREWERY FETCH FUNCTION------------------------------------------------------------------// 
+
 function getBrewery(){
     fetch(query)
         .then(function(result){
@@ -38,14 +44,22 @@ function getBrewery(){
 }
 //-------------------------------------------------------------------------------------------//
 
+
+/**
+ * Splits up a phone number such that it is more readable.
+ * @param {string or number} number a string (or number) of at least 10 characters representing a phone number.
+ * @returns {string} in the format (###) ###-#### or +## (###) ###-#### depending on whether or not a country code is available.
+ */
+
 //-----BREWERY PHONE NUMBER FUNCTION---------------------------------------------------------// 
+
 function delineatePhoneNumber(number){
 	number = "" + number;
 	number = number.split("")
 	// OpenBreweryDB might not actually include country codes smh.
 	var countryCode = "";
 	if(number.length > 10){
-		countryCode += number.slice(0, number.length - 10).join("");
+		countryCode += "+" + number.slice(0, number.length - 10).join("");
 	}
 	var rootNumber = number.slice(number.length - 10, number.length);
 	rootNumber.splice(6, 0, "-");
@@ -56,7 +70,13 @@ function delineatePhoneNumber(number){
 }
 //------------------------------------------------------------------------------------------//
 
+
+/**
+ * Adds the current brewery to a list of favorite breweries.
+ */
+
 //-----FAVORITE BUTTON, SETTING IN LOCAL STORAGE--------------------------------------------// 
+
 function setFavorite(){
 	var favorites = JSON.parse(localStorage.getItem("favorites"));
 	var brewery = {
@@ -72,40 +92,51 @@ function setFavorite(){
   window.location.reload();
 }
 
-$(".favoritesButton").on("click", function (event) {
+/**
+ * Displays a list of favorite breweries.
+ */
+$(".favoritesButton").on ("click", function(event){
   event.preventDefault();
   $(".modal").addClass("is-active");
   console.log($(".modal"));
 })
 
-$(".modal-close").on("click", function (event) {
+/**
+ * Closes the favorite breweries list.
+ */
+$(".modal-close").on("click", function(event){
   event.preventDefault();
   $(".modal").removeClass("is-active");
   console.log($(".modal"));
 })
 //------------------------------------------------------------------------------------------//
 
+
+/**
+ * Retrieve the current list of favorites.
+ * @returns when the list of favorites is empty.
+ */
+
 //-----FAVORITE BUTTON, PULL FROM LOCAL STORAGE---------------------------------------------// 
+
 function getFavorites() {
 
-  var favoritesList =
-    JSON.parse(localStorage.getItem("favorites"));
-  console.log(favoritesList)
-  //if favoritesList.length===0 {} or !favoritesList.length
-  if (favoritesList === null) {
-    return;
-  }
-
-  for (var i = 0; i < favoritesList.length; i++) {
-    console.log(favoritesList[i].name);
-    var viewFavorites = `
-    <div class="tile is parent has-text-dark">
-    <article class="tile is-child box button" style="font-weight:bolder;">
-      <a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
-    </article>
-    </div>`
-    $(".tableRow").append(viewFavorites);
-  }
+	var favoritesList = JSON.parse(localStorage.getItem("favorites"));
+	console.log(favoritesList)
+	//if favoritesList.length===0 {} or !favoritesList.length
+	if (favoritesList === null) {
+		return;
+	}
+	for (var i = 0; i < favoritesList.length; i++) {
+		console.log(favoritesList[i].name);
+		var viewFavorites = `
+<div class="tile is parent has-text-dark">
+	<article class="tile is-child box button" style="font-weight:bolder;">
+		<a href="./brewery.html?q=${favoritesList[i].id}"><p>${favoritesList[i].name}</p></a>
+	</article>
+</div>`
+		$(".tableRow").append(viewFavorites);
+	}
 }
 //------------------------------------------------------------------------------------------//
 

@@ -8,10 +8,19 @@ https://kimberlym4488.github.io/brewtrek/
 https://github.com/kimberlym4488/brewtrek
 
 # Project Previews
-## Home Page
+## Home Page/Mobile View
+[![Preview-Image-2-Mobile](https://user-images.githubusercontent.com/92805933/146703424-73005eb7-3e12-4ff0-b648-b9d59c761490.PNG)](https://kimberlym4488.github.io/brewtrek/)
+
+
+## Breweries Page
 (Click Image to see live page)
 
->[![Preview-Image-1-Home](https://user-images.githubusercontent.com/92805933/145765299-ab1bcbbc-62b0-4247-8001-8ca08c826a02.PNG)](https://kimberlym4488.github.io/brewtrek/)
+>[![Preview-Image-3-Breweries](https://user-images.githubusercontent.com/92805933/146703306-90dfe2c8-8958-443a-8939-11808c348eca.PNG)](https://kimberlym4488.github.io/brewtrek/)
+
+## Single Brewery Page
+(Click Image to see live page)
+
+>[![Preview Image - Individual Brewery Page](https://user-images.githubusercontent.com/92805933/146703210-15998eb7-d157-4ed4-8a67-2ab4e2ada2ac.PNG)](https://kimberlym4488.github.io/brewtrek/)
 
 # Features
 
@@ -25,7 +34,7 @@ https://github.com/kimberlym4488/brewtrek
 
 ## Summary
 
-brewtrek is a webservice that utilizes asynchronous JavaScript with [OpenBreweryDB](https://www.openbrewerydb.org/) to provide users with the ability to search for breweries in any city. The webservice is utilizes the [bulma](https://bulma.io/) framework for layout and styling. On the landing page, users may enter the name of a city. 
+brewtrek is a webservice that utilizes asynchronous JavaScript with [OpenBreweryDB](https://www.openbrewerydb.org/) to provide users with the ability to search for breweries in any city. The webservice it utilizes is[bulma](https://bulma.io/) for framework for layout and styling, css, html, javaScript, jQuery. On the landing page, users may enter the name of a city. 
 
 ## Author Names
 
