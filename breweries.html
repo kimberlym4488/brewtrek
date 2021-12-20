@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!------------------HEAD LINKS---------------------------------------------->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +13,14 @@
   <!-- May consider a separate stylesheet per page, but also this may be fine -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+<!------------------------------------------------------------------------->
 
+
+<!----------------BODY DATA-------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
 <body>
 
+  <!------------------HEADER DATA---------------------------------------------->
   <header>
     <nav class="navbar is-flex is-justify-content-center is-align-items-center is-spaced has-shadow" role="navigation"
       aria-label="main navigation">
@@ -26,12 +32,14 @@
       </div>
     </nav>
   </header>
+  <!------------------------------------------------------------------------->
 
   <main class="main-background container has-text-centered is-capitalized"
     style="padding-left:4rem;padding-right:4rem;">
     <br>
     <button class="is-medium button favoritesButton is-primary is-inline-block has-text-centered text-center "
       id="btn">View Favorites</button>
+
     <br>
     <div style="border:none; text-align: center;">
       <a href="./" class="button is-medium backButton">Back</a>
@@ -41,7 +49,10 @@
       <!-- #query-results will contain the list of breweries retrieved from the user's search -->
     </div>
   </main>
+  <!------------------------------------------------------------------------->
+
   <br>
+
   <div style="border:none; text-align: center;">
     <a href="index.html" class="button is-medium backButton">Back</a>
   </div>
@@ -59,8 +70,10 @@
       <p class="funFacts">Fun Fact!</p>
     </article>
   </div>
+  <!------------------------------------------->
 
-  <div class="modal">
+  <!------------------MODAL/FAVORITES LIST DATA------------------------------>
+  <div class="modal" >
     <div class="modal-background"></div>
     <div class="modal-content has-text-centered is-centered">
       <nav class="is-inline-block is-centered table-container tableData  is-centered">
@@ -81,8 +94,11 @@
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
+  <!---------------------------------------------------------------------->
 
   <script src="./assets/js/breweries.js"></script>
 </body>
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
 
 </html>
