@@ -21,54 +21,26 @@
 
     <!------------------HEADER DATA---------------------------------------------->
     <header>
-        <nav class="navbar is-justify-content-space-between is-spaced has-shadow" role="navigation"
-            aria-label="main navigation">
-            <div class="navbar-brand navbar-start is-fullwidth">
-                <a class="navbar-item is-fullwidth" id="mainLogo" width="300px"
-                    href="https://kimberlym4488.github.io/brewtrek/">
-                    <img src="assets/Images/logo.PNG">
-                </a>
-
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <button
-                            class="button favoritesButton  is-primary is-medium is-centered has-text-centered level-item "
-                            id="btn">View Favorites</button>
-                    </div>
-                </div>
-            </div>
+        <nav class="navbar is-flex is-justify-content-center is-align-items-center is-spaced has-shadow" role="navigation" aria-label="main navigation" >
+            <div class="navbar-brand is-fullwidth"  >
+              <a class="navbar-item is-fullwidth" id="mainLogo" width="300px" href="https://kimberlym4488.github.io/brewtrek/">
+                <img src="assets/Images/logo.PNG">
+              </a>    
+              </div>
         </nav>
-    </header>
+      </header>
     <!------------------------------------------------------------------------->
-   
-    <!------------------MODAL/FAVORITES LIST DATA------------------------------>
-    <div class="modal" >
-        <div class="modal-background"></div>
-        <div class="modal-content has-text-centered is-centered">
-            <table class="table fullTable is-fullwidth has-text-centered ">
-                <tr >
-                  <th title="Name" class="box thtitle is-fullwidth" style="color:white">Click a name to see more details.
-                  </th>
-                </tr>          
-                <tbody class="favoritesTab">
-                  <tr class="tableRow" style="font-weight:bold">
-    
-                  </tr>
-                <!--JS Favorites List-->
-                </tbody>
-              </table>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-      </div>
-      <!---------------------------------------------------------------------->
   
     <!------------------MAIN DATA---------------------------------------------->
     <!-- main will contain the information retrieved from a brewery selected on breweries.html -->
 
-    <main class="main-background container  has-text-centered">
-        <br>
+    <main class="main-background container has-text-centered is-capitalized" style="padding-left:4rem;padding-right:4rem;">
+          <br>
+          <button class="is-medium button favoritesButton is-primary is-inline-block has-text-centered text-center " id="btn" >View Favorites</button>
+          <br>
+
         <div style="border:none; text-align: center;">
-            <a href="./" class="button is-medium backButton">Back</a>
+            <a href="index.html" class="button is-medium backButton">Back</a>
         </div>
         <br>
         
@@ -85,6 +57,28 @@
             <li class="column"><a href="#" id="url">Web Page</a></li>
         </ul>
     </main>
+ <!------------------MODAL/FAVORITES LIST DATA------------------------------>
+    <!--Modal!-->
+    <div class="modal" >
+        <div class="modal-background"></div>
+        <div class="modal-content has-text-centered is-centered">
+            <table class="table fullTable is-fullwidth has-text-centered ">
+                <tr >
+                  <th title="Name" class="box thtitle is-fullwidth" style="color:white">Click a name to see more details.
+                  </th>
+                </tr>          
+                <tbody class="favoritesTab">
+                  <tr class="tableRow" style="font-weight:bold">
+    
+                  </tr>
+                <!--JS Favorites List-->
+                </tbody>
+            </table>
+            <button class="button is-medium clearFavorites" style="color:white">Clear Favorites</button>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
+
     <!------------------------------------------------------------------------->
     
     <!------------------USELESS FACT DATA-------->

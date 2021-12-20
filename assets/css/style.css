@@ -119,10 +119,9 @@ a.firstChild{
         height: auto;
         max-width: 40vw;
         max-height: 100vw;
-        
     }
 
-    .navbar-item img:hover{
+.navbar-item img:hover{
         width: auto;
         height: auto;
         max-width: 45vw;
@@ -131,9 +130,10 @@ a.firstChild{
     }
 
 .navbar-brand{
-    justify-content:space-between;
+    flex-direction:column;
     align-items:center;
-    height:15vh;
+    justify-content:center;
+    height:10vh;
 }
 
 .button.is-primary{
@@ -156,6 +156,25 @@ a.firstChild{
     transition: 200ms 200ms;
 }
 
+.clearFavorites.button{
+    font-size:medium;
+    background-color:#F94144;
+}
+.clearFavorites.button:hover{
+    background-color:#43AA8B;
+    transition: 200ms 200ms;
+}
+
+.favoritesButton.button{
+    font-size:medium;
+    background-color:rgb(87,117,144,.7);
+    margin-bottom:1rem;
+}
+.favoritesButton.button:hover{
+    background-color:#43AA8B;
+    transition: 200ms 200ms;
+}
+
 .modal-content{
     padding:2rem;
 }
@@ -164,7 +183,6 @@ a.firstChild{
     padding:2rem;
     margin-top:2rem;
 }
-
 
 .tableData{
     background-color:white;
@@ -210,6 +228,32 @@ a.firstChild{
     justify-content:center;
 }
 
+
+a.firstChild{
+    color:#F94144;
+    font-size:1.5rem;
+}
+
+#kim:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#cameron:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#eileen:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
+#armin:hover{
+    text-decoration:underline;
+    transition:color 200ms 200ms;
+}
+
 .tile{
     display: flex;
     flex-wrap: wrap;
@@ -218,7 +262,7 @@ a.firstChild{
     margin: 10px 10px 10px 10px;
 }
 
-.tester{
+.footerContent{
     background-color:rgb(87,117,144,.4);
     border-radius:4px;
     border:rgb(87,117,144) .5 5px;
@@ -241,11 +285,9 @@ a.firstChild{
     font-size: small;
     text-align: center;
     text-decoration: underline;
-    
  }
 
  .subtitle:hover{
-    
     color: #43AA8Bed;
     transition:color 200ms 200ms;
  }

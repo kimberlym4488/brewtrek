@@ -16,92 +16,95 @@
   <!----------------BODY DATA-------------------------------------------------------------------------------------------->
   <!--------------------------------------------------------------------------------------------------------------------->
 <body>
-      
+
 <!------------------HEADER DATA---------------------------------------------->
+
   <header>
-    <nav class="navbar is-justify-content-space-between is-spaced has-shadow" role="navigation" aria-label="main navigation" >
-        <div class="navbar-brand navbar-start is-fullwidth"  >
-          <a class="navbar-item is-fullwidth" id="mainLogo" width="300px" href="https://kimberlym4488.github.io/brewtrek/">
-            <img src="assets/Images/logo.PNG">
-          </a>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-                  <button class="button favoritesButton  is-primary is-medium is-centered has-text-centered level-item " >View Favorites</button>
-          </div>
-        </div>
+    <nav class="navbar is-flex is-justify-content-center is-align-items-center is-spaced has-shadow" role="navigation"
+      aria-label="main navigation">
+      <div class="navbar-brand is-fullwidth">
+        <a class="navbar-item is-fullwidth" id="mainLogo" width="300px"
+          href="https://kimberlym4488.github.io/brewtrek/">
+          <img src="assets/Images/logo.PNG">
+        </a>
       </div>
     </nav>
   </header>
 <!------------------------------------------------------------------------->
 
-<!------------------MAIN DATA---------------------------------------------->
-    <main class="main-background container has-text-centered is-capitalized" style="padding-left:4rem;padding-right:4rem;">
+  <main class="main-background container has-text-centered is-capitalized"
+    style="padding-left:4rem;padding-right:4rem;">
+    <br>
+    <button class="is-medium button favoritesButton is-primary is-inline-block has-text-centered text-center "
+      id="btn">View Favorites</button>
+    <br>
+    <div class="box container is-size-8-mobile is-size-6-touch is-size-3-tablet is-size-3-widescreen is-size-2-fullHD"
+      id="welcomeMessage">
+    </div>
+    <form>
+      <input class="input title text-center is-capitalized is-size-7-mobile is-size-6-touch " type="text" id="input"
+        placeholder="Enter your city">
+      <p id="invalidEntry"></p>
+      <button class="button is-primary is-medium is-inline-block has-text-centered text-center is-expanded"
+        id="btn">Search!</button>
       <br>
-      <div class = "box container is-size-8-mobile is-size-6-touch is-size-3-tablet is-size-3-widescreen is-size-2-fullHD" id="welcomeMessage" >
-      </div>
-      <form>
-        <input class="input title text-center is-capitalized is-size-7-mobile is-size-6-touch " type="text" id = "input" placeholder="Enter your city">
-        <p id="invalidEntry"></p>
-        <button class="button is-primary is-medium is-inline-block has-text-centered text-center is-expanded" id="btn">Search!</button>
-        <br>
-        <br>
-      </form>
-    </main>
-<!------------------------------------------------------------------------>
+      <br>
+    </form>
+  </main>
 
-    <!------------------USELESS FACT DATA-------->
-    <div class="tile is-parent has-text-centered" id="uselessFact">
-      <article class="tile is-child box is-inline-block">
-        <p class="title">Take a fun-fact to go!</p>
-        <p class="funFacts">Fun Fact!</p>
-      </article>
-    </div>
-    <!------------------------------------------->
+  <!--Display useless fact here-->
+  <div class="tile is-parent has-text-centered" id="uselessFact">
+    <article class="tile is-child box is-inline-block">
+      <p class="title">Take a fun-fact to go!</p>
+      <p class="funFacts">Fun Fact!</p>
+    </article>
+  </div>
+  <!------------------MODAL/FAVORITES LIST DATA------------------------------>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content has-text-centered is-centered">
+      <table class="table fullTable is-fullwidth has-text-centered ">
+        <tr>
+          <th title="Name" class="box thtitle is-medium is-fullwidth" style="color:white">Click a name to see more
+            details.
+          </th>
+        </tr>
+        <tbody class="favoritesTab">
+          <tr class="tableRow" style="font-weight:bold">
 
-    <!------------------MODAL/FAVORITES LIST DATA------------------------------>
-    <div class="modal" >
-      <div class="modal-background"></div>
-      <div class="modal-content has-text-centered is-centered">
-          <table class="table fullTable is-fullwidth has-text-centered ">
-              <tr >
-                <th title="Name" class="box thtitle is-fullwidth" style="color:white">Click a name to see more details.
-                </th>
-              </tr>          
-              <tbody class="favoritesTab">
-                <tr class="tableRow" style="font-weight:bold">
-  
-                </tr>
-              <!--JS Favorites List-->
-              </tbody>
-            </table>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
+          </tr>
+          <!--JS Favorites List-->
+        </tbody>
+      </table>
+
+      <button class="button is-medium clearFavorites" style="color:white">Clear Favorites</button>
     </div>
-    <!---------------------------------------------------------------------->
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
 
     <!------------------FOOTER DATA---------------------------------------------->
-    <footer class="tester">
-      <div class="content has-text-centered">
-        <p class = "footerStyle">
-          <strong id ="Contributors"></strong>
-          Brought to you by Project Group 7
-          <a class ="firstChild">Contributors:</a>
-          <a href="https://github.com/kimberlym4488" id="kim">Kim Moran</a>
-          <a href="https://github.com/CameronMSeibel" id="cameron"> Cameron Seibel </a>
-          <a href="https://github.com/eileenhlmitchell19" id="eileen">Eileen Mitchell</a>
-          <a href="https://github.com/ArminGhsm"id="armin"> Armin Ghasemian </a>
-        </p>
-      </div>
-    </footer>
-    <!------------------------------------------------------------------------>
+  <footer class="footerContent">
+    <div class="content has-text-centered">
+      <p class="footerStyle">
+        <strong id="Contributors"></strong>
+        Brought to you by Project Group 7
+        <a class="firstChild">Contributors:</a>
+        <a href="https://github.com/kimberlym4488" id="kim">Kim Moran</a>
+        <a href="https://github.com/CameronMSeibel" id="cameron"> Cameron Seibel </a>
+        <a href="https://github.com/eileenhlmitchell19" id="eileen">Eileen Mitchell</a>
+        <a href="https://github.com/ArminGhsm" id="armin"> Armin Ghasemian </a>
+      </p>
+    </div>
+  </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
-  <!--------------------------------------------------------------------------------------------------------------------->
-  <!--------------------------------------------------------------------------------------------------------------------->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+    integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
 </html>

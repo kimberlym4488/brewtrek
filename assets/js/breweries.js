@@ -63,6 +63,13 @@ $(".modal-close").on("click", function(event){
 	$(".modal").removeClass("is-active");
 	console.log($(".modal"));
 })
+
+//Clears favorites when the clearFavorites button is clicked.
+$(".clearFavorites").on("click", function (event) {
+	event.preventDefault();
+	window.localStorage.clear();
+	$(".tableRow").empty();
+  })
 //-----------------------------------------------------------------------------------//
 
 
@@ -78,7 +85,9 @@ function getFavorites(){
 	JSON.parse(localStorage.getItem("favorites"));
 	console.log(favoritesList)
 	//if favoritesList.length===0 {} or !favoritesList.length
-	if (favoritesList===null){
+	if (favoritesList === null) {
+		$(".tableRow").text("You haven't added any favorites yet")
+		document.querySelector(".clearFavorites").disabled = true;
 		return;
 	}
 	for(var i=0; i<favoritesList.length;i++){
