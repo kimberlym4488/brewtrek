@@ -24,7 +24,7 @@ function getLatLon() {
       console.log(data)
 
       if (data.length == 0) {
-        alert("Invalid city!")
+        $("#invalidEntry").text("Please enter a valid city!");
       }
       else {
         var latitude = data[0].lat;
