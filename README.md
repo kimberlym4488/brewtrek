@@ -41,14 +41,19 @@ https://github.com/kimberlym4488/brewtrek
 
 # Project Previews
 ## Home Page/Mobile View
-[![Preview-Image-2-Mobile](https://user-images.githubusercontent.com/92805933/146703424-73005eb7-3e12-4ff0-b648-b9d59c761490.PNG)](https://kimberlym4488.github.io/brewtrek/)
+>[![1HomePage](https://user-images.githubusercontent.com/92805933/146860907-6c7c2b71-8ebb-4133-a5bd-eb0742c9367a.PNG)](https://kimberlym4488.github.io/brewtrek/)
 
 ## Breweries Page
 (Click Image to see live page)
 
->[![Preview-Image-3-Breweries](https://user-images.githubusercontent.com/92805933/146703306-90dfe2c8-8958-443a-8939-11808c348eca.PNG)](https://kimberlym4488.github.io/brewtrek/)
+>[![2BreweriesTop](https://user-images.githubusercontent.com/92805933/146860957-b3587a75-8d26-4c87-afd3-29ea432eaece.PNG)](https://kimberlym4488.github.io/brewtrek/)
 
 ## Single Brewery Page
 (Click Image to see live page)
 
->[![Preview Image - Individual Brewery Page](https://user-images.githubusercontent.com/92805933/146703210-15998eb7-d157-4ed4-8a67-2ab4e2ada2ac.PNG)](https://kimberlym4488.github.io/brewtrek/)
+>[![3BreweryPageResults](https://user-images.githubusercontent.com/92805933/146861014-0b149a60-4b33-43cd-9d26-c6f0668ef9e9.PNG)](https://kimberlym4488.github.io/brewtrek/)
+
+## Favorites Modal
+(Click Image to see live page)
+
+>[![4Modal](https://user-images.githubusercontent.com/92805933/146861143-5d30e6fc-f8a5-49d8-a287-e66a95bf74a5.PNG)](https://kimberlym4488.github.io/brewtrek/)
