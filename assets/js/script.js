@@ -73,26 +73,24 @@ $(".clearFavorites").on("click", function (event) {
 })
 
 function getFavorites() {
-
-  var favoritesList =
-    JSON.parse(localStorage.getItem("favorites"));
-    favoritesList.sort((a, b) => {
-      if (
-        a.id < b.id) {
-        return -1;
-      }
-      if (
-        a.id > b.id) {
-        return 1;
-      }
-      if (
-        a.id === b.id) {
-        return 0;
-      }
-    });
+  var favoritesList = JSON.parse(localStorage.getItem("favorites"));
+  if(!favoritesList){
+    favoritesList = [];
+  }
+  favoritesList.sort((a, b) => {
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    if (a.id === b.id) {
+      return 0;
+    }
+  });
 
   //if favoritesList.length===0 {} or !favoritesList.length
-  if (favoritesList === null) {
+  if (favoritesList.length < 1) {
     $(".tableRow").text("You haven't added any favorites yet")
     document.querySelector(".clearFavorites").disabled = true;
     return;
@@ -148,5 +146,5 @@ function uselessFacts() {
 
 startFacts();
 getFavorites();
-document.getElementById('btn').addEventListener("click", buttonClickHandler);
+$("form").submit(buttonClickHandler);
 displayTime();
