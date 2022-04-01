@@ -4,6 +4,9 @@ OpenBreweryDB and UselessFacts API for Group Project 1
 ## Project Homepage
 https://kimberlym4488.github.io/brewtrek/
 
+## Video Walkthrough
+https://www.loom.com/share/5afa427e1f96467ab1eb137f43fc4e38
+
 ## Project documentation URL
 https://github.com/kimberlym4488/brewtrek
 
@@ -42,11 +45,6 @@ https://github.com/kimberlym4488/brewtrek
 # Project Previews
 ## Home Page/Mobile View
 >[![1HomePage](https://user-images.githubusercontent.com/92805933/146860907-6c7c2b71-8ebb-4133-a5bd-eb0742c9367a.PNG)](https://kimberlym4488.github.io/brewtrek/)
-
-## Breweries Page
-(Click Image to see live page)
-
->[![2BreweriesTop](https://user-images.githubusercontent.com/92805933/146860957-b3587a75-8d26-4c87-afd3-29ea432eaece.PNG)](https://kimberlym4488.github.io/brewtrek/)
 
 ## Single Brewery Page
 (Click Image to see live page)
